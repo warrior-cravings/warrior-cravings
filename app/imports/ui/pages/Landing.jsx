@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Grid, Header, Icon, Image } from 'semantic-ui-react';
-import { Link, Redirect } from 'react-router-dom';
-import { withRouter, NavLink } from 'react-router-dom';
+import { Button, Grid, Header} from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
