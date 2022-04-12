@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Hawaii;
+  src: url(/fonts/UHMFont.ttf) format('truetypefont');
+}
+
+@font-face {
+  font-family: UHMFont;
+  src: url(/fonts/UHMFont.otf);
+}
+
+.h1 {
+  font-family: 'UHMFont', 'serif';
+  font-size: 38px;
+  font-weight: 200;
+}
