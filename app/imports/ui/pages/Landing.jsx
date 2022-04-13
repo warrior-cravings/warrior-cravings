@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, Header} from 'semantic-ui-react';
+import { Button, Grid, Header } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
@@ -22,6 +22,7 @@ class Landing extends React.Component {
           <Button className="ui circular red button" color='white' as={NavLink} exact to="/signup" style={buttonStyle}>Sign Up</Button>
         </Grid.Row>
         <Grid.Row>
+          {/* eslint-disable-next-line max-len */}
           <p style={sumStyle}>The University of Hawaiʻi at Mānoa campus offers a large selection of food places for students to enjoy and eat at. Warrior Cravings allows Students to see all the unique food choices available on campus while providing a platform for Vendors to showcase their menu. </p>
         </Grid.Row>
       </Grid>
