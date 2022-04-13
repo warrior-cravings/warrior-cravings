@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
 import StuffItem from '../components/StuffItem';
+import { MenuItems } from '../../api/menuItem/MenuItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
@@ -46,11 +47,11 @@ ListStuff.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  const subscription = Meteor.subscribe(MenuItems.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const stuffs = Stuffs.collection.find({}).fetch();
+  const stuffs = MenuItems.collection.find({}).fetch();
   return {
     stuffs,
     ready,
