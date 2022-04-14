@@ -5,7 +5,9 @@
   },
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "vendor@foo.com", "password": "changeme", "role": "vendor" },
+    { "email": "vendor2@foo.com", "password": "changeme", "role": "vendor" }
   ],
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
@@ -14,6 +16,22 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
   "defaultMenuItems": [
-    { "name": "Nutella", "type": "dessert", "ingredients": ["Hazelnut chocolate", "Crepe"], "vendor": "Le Crepe Cafe" }
+    { "name": "Nutella", "mealType": ["Dessert"], "ingredients": ["Hazelnut Chocolate", "Crepe"], "vendor": "Le Crepe Cafe" },
+    { "name": "Dulce de Leche", "type": ["Dessert"], "ingredients": ["Caramel","Bananas", "Walnuts", "Cinnamon", "Crepe"], "vendor": "Le Crepe Cafe" },
+    { "name": "Garlic Shrimp", "mealType": ["Healthy", "Seafood"], "ingredients": ["Brown Rice", "green salad", "Shrimp"], "vendor": "L&L Hawaiian Barbecue" }
+  ],
+  "defaultVendors": [
+    { "name":  "Le Crepe Cafe",
+      "description":  "Le Crêpe Café makes traditional French crêpes, cooked to order in front of customers. They specialize in a flavorsome menu of sweet and savory crêpes and use fresh ingredients, organic when possible. Their utensils are even bio-compostable. Enjoy a crêpe any time of day, as a breakfast, snack, main course, or dessert — close your eyes and you’re in Paris!\n\nWhether you’re needing a break from the law books or a pick-me-up as you’re headed to or off campus, you’ll also appreciate Le Crêpe Café’s French Roast and espresso drinks.",
+      "images":  [ "https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/crepe_big.jpg" ],
+      "buildingLocation":  "Paradise Palms",
+      "owner":  "vendor@foo.com"
+    },
+    { "name":  "L&L Hawaiian Barbecue",
+      "description":  "Delicious local and Asian-American fusion cuisine served in big portions at reasonable prices! Try delicious L&L favorites like the Hawaiian Barbecue beef, chicken, or short ribs! Enjoy L&L’s famous fried chicken katsu, the best in town! Grab-and-go, breakfast items and party packs for groups also available.",
+      "images":  [ "https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/landl_big.jpg" ],
+      "buildingLocation":  "Paradise Palms",
+      "owner":  "vendor2@foo.com"
+    }
   ]
 }
