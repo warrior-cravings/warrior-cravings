@@ -11,11 +11,7 @@ class MenuItemsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      mealType: {
-        label: 'Meal Type',
-        type: Array,
-        defaultValue: 'Select',
-      },
+      mealType: Array,
       'mealType.$': {
         type: String,
         allowedValues: ['Dessert', 'Poultry', 'Beef', 'Pork', 'Fish', 'Seafood', 'Sandwich', 'Burgers', 'Salad', 'Drink', 'Healthy', 'Vegan'],

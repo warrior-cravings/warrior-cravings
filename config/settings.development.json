@@ -17,7 +17,7 @@
   ],
   "defaultMenuItems": [
     { "name": "Nutella", "mealType": ["Dessert"], "ingredients": ["Hazelnut Chocolate", "Crepe"], "vendor": "Le Crepe Cafe" },
-    { "name": "Dulce de Leche", "type": ["Dessert"], "ingredients": ["Caramel","Bananas", "Walnuts", "Cinnamon", "Crepe"], "vendor": "Le Crepe Cafe" },
+    { "name": "Dulce de Leche", "mealType": ["Dessert"], "ingredients": ["Caramel","Bananas", "Walnuts", "Cinnamon", "Crepe"], "vendor": "Le Crepe Cafe" },
     { "name": "Garlic Shrimp", "mealType": ["Healthy", "Seafood"], "ingredients": ["Brown Rice", "green salad", "Shrimp"], "vendor": "L&L Hawaiian Barbecue" }
   ],
   "defaultVendors": [

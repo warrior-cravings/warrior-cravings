@@ -37,8 +37,8 @@ if (MenuItems.collection.find().count() === 0) {
 }
 
 if (Vendors.collection.find().count() === 0) {
-  if (Meteor.settings.defaultMenuItems) {
+  if (Meteor.settings.defaultVendors) {
     console.log('Creating default Vendors.');
-    Meteor.settings.defaultVendor.map(data => addVendor(data));
+    Meteor.settings.defaultVendors.map(data => addVendor(data));
   }
 }

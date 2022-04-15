@@ -29,7 +29,7 @@ class ListStuffAdmin extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
+            {this.props.menuItems.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
           </Table.Body>
         </Table>
       </Container>
@@ -39,7 +39,7 @@ class ListStuffAdmin extends React.Component {
 
 // Require an array of Stuff documents in the props.
 ListStuffAdmin.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  menuItems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
