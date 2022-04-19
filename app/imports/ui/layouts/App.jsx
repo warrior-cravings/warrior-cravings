@@ -12,6 +12,7 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
+import CreateMenuItem from '../pages/CreateMenuItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -32,6 +33,7 @@ class App extends React.Component {
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+            <VendorProtectedRoute path="/vendor/menuitem-create" component={CreateMenuItem}/>
             <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
