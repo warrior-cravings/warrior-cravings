@@ -1,11 +1,12 @@
 import React from 'react';
 import { Grid, Segment, Header, Form, Modal, Button } from 'semantic-ui-react';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
-import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
+import { AutoForm, TextField, SubmitField, HiddenField } from 'uniforms-semantic';
 import swal from 'sweetalert';
+import { withRouter } from 'react-router-dom';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import PropTypes from 'prop-types';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
-import RadioField from '../forms/controllers/RadioField';
 import { MenuItemFormSchema as formSchema } from '../forms/MenuItemForm';
 import { MenuItems } from '../../api/menuItem/MenuItem';
 
@@ -32,6 +33,7 @@ class CreateMenuItem extends React.Component {
   CreateMenuItemModal() {
     const [open, setOpen] = React.useState(false);
     let fRef = null;
+    console.log(this.props.vendorsDoc);
     return (
       <Modal
         onClose={() => setOpen(false)}
@@ -48,7 +50,7 @@ class CreateMenuItem extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField name='name' showInlineError={true} placeholder={'Item Name'}/>
-                    <TextField name='vendor' disabled={true} showInlineError={false} placeholder={'Vendor'}/>
+                    <HiddenField name='vendor' value={this.props.vendorsDoc.name}/>
                   </Form.Group>
                   <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType(optional)'}/>
                   <MultiSelectField name='ingredients' showInlineError={true} placeholder={'Select Ingredients (optional)'}/>
@@ -75,5 +77,9 @@ class CreateMenuItem extends React.Component {
     );
   }
 }
+CreateMenuItem.propTypes = {
+  vendorsDoc: PropTypes.object,
+};
 
-export default CreateMenuItem;
+// Wrap this component in withRouter since we use the <Link> React Router element.
+export default withRouter(CreateMenuItem);
