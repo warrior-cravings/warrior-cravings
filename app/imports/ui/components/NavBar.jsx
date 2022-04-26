@@ -19,6 +19,8 @@ class NavBar extends React.Component {
         <Menu.Item as={NavLink} activeClassName="active" exact to="/map" key='add'>Map</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-list" key='vendorlist'>Vendors</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/top-choices" key='topChoices'>Top Choices</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/userhome" key='userHome'>User Home</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/adminhome" key='adminHome'>Admin Home</Menu.Item>,
       ]) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
         <Menu.Item as={NavLink} activeClassName="active" exact to="/home" key='vendor'>Vendor</Menu.Item>,
