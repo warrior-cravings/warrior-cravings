@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
-export const item = {
+export const itemValues = {
   itemType: ['Dessert', 'Poultry', 'Beef', 'Pork', 'Fish', 'Seafood', 'Sandwich', 'Burgers', 'Salad', 'Drink', 'Healthy', 'Vegan'],
 };
 
@@ -19,7 +19,7 @@ class MenuItemsCollection {
       mealType: Array,
       'mealType.$': {
         type: String,
-        allowedValues: this.itemValues.itemType,
+        allowedValues: itemValues.itemType,
       },
       // image: String,
       ingredients: Array,
