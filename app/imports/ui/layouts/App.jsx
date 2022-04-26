@@ -17,6 +17,8 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import AdminHome from '../pages/AdminHome';
 import UserHome from '../pages/UserHome';
+import Locations from '../pages/Locations';
+
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -27,15 +29,16 @@ class App extends React.Component {
           <NavBar/>
           <Switch>
             <Route exact path="/" component={Landing}/>
+            <Route exact path="/locations" component={Locations}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-            <ProtectedRoute path="/adminhome" component={AdminHome}/>
-            <ProtectedRoute path="/userhome" component={UserHome}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <ProtectedRoute path="/userhome" component={UserHome}/>
+            <ProtectedRoute path="/adminhome" component={AdminHome}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
