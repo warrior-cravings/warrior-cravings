@@ -1,12 +1,11 @@
 import React from 'react';
 import { Grid, Segment, Header, Form, Modal, Button } from 'semantic-ui-react';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
-import { AutoForm, TextField, SubmitField, HiddenField } from 'uniforms-semantic';
+import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
-import { withRouter } from 'react-router-dom';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import PropTypes from 'prop-types';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
+import RadioField from '../forms/controllers/RadioField';
 import { MenuItemFormSchema as formSchema } from '../forms/MenuItemForm';
 import { MenuItems } from '../../api/menuItem/MenuItem';
 
@@ -17,15 +16,14 @@ class CreateMenuItem extends React.Component {
   /** On submit, try to insert the data. If successful, reset the form. */
   submit(data, formRef) {
     let insertError;
-    const { name, email } = data;
-    MenuItems.insert({ name },
+    const { name, vendor, mealType, ingredients } = data;
+    MenuItems.insert({ name, vendor, mealType, ingredients },
       (error) => { insertError = error; });
-
     if (insertError) {
       swal('Error', insertError.message, 'error');
     } else {
-      swal('Success', 'The student record was created.', 'success');
-      this.setState({ email });
+      swal('Success', 'The Menu Item was created.', 'success');
+      this.setState({ name });
       formRef.reset();
     }
   }
@@ -33,7 +31,6 @@ class CreateMenuItem extends React.Component {
   CreateMenuItemModal() {
     const [open, setOpen] = React.useState(false);
     let fRef = null;
-    console.log(this.props.vendorsDoc);
     return (
       <Modal
         onClose={() => setOpen(false)}
@@ -50,10 +47,10 @@ class CreateMenuItem extends React.Component {
                 <Segment>
                   <Form.Group widths={'equal'}>
                     <TextField name='name' showInlineError={true} placeholder={'Item Name'}/>
-                    <HiddenField name='vendor' value={this.props.vendorsDoc.name}/>
+                    <SelectField name='vendor' showInlineError={false} placeholder={'Vendor'}/>
                   </Form.Group>
-                  <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType(optional)'}/>
-                  <MultiSelectField name='ingredients' showInlineError={true} placeholder={'Select Ingredients (optional)'}/>
+                  <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType'}/>
+                  <TextField name='ingredients' showInlineError={true} placeholder={'Type Ingredients in comma separated list'}/>
                   <SubmitField value='Submit'/>
                 </Segment>
               </AutoForm>
@@ -63,7 +60,7 @@ class CreateMenuItem extends React.Component {
         <Modal.Actions>
           <Button onClick={() => setOpen(false)}>Cancel</Button>
           <Button onClick={() => setOpen(false)} positive>
-              Add
+              Finished Creating Items
           </Button>
         </Modal.Actions>
       </Modal>
@@ -77,9 +74,5 @@ class CreateMenuItem extends React.Component {
     );
   }
 }
-CreateMenuItem.propTypes = {
-  vendorsDoc: PropTypes.object,
-};
 
-// Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(CreateMenuItem);
+export default CreateMenuItem;
