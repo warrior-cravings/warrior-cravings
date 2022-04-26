@@ -1,9 +1,15 @@
 import React from 'react';
 import { Grid, Header } from 'semantic-ui-react';
+// import { Redirect } from 'react-router-dom';
+// import { Meteor } from 'meteor/meteor';
+// import { Roles } from 'meteor/alanning:roles';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
+    // if (Roles.userIsInRole(Meteor.userId(), 'user')) {
+    //   return <Redirect to={{ from: { pathname: '/userhome' } }}/>;
+    // }
     const headStyle = { color: 'red', fontFamily: 'UHMFont', fontSize: '30px', fontWeight: '700', paddingBottom: '10px' };
     const logoStyle = { color: 'red', fontFamily: 'UHMFont', fontSize: '200px', fontWeight: '700', paddingTop: '50px' };
     const sumStyle = { color: 'red', fontFamily: 'Arial', fontSize: '25px', fontWeight: '700', marginLeft: '165px', marginRight: '165px', paddingBottom: '80px', paddingTop: '10px' };
