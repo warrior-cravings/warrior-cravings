@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -7,20 +7,18 @@ import { withRouter } from 'react-router-dom';
 class Profile extends React.Component {
   render() {
     return (
-      <Card>
-        <Card.Content>
-          <Image
-            floated='right'
-            size='mini'
-            src={this.props.profile.image}
-          />
-          <Card.Header>{this.props.profile.firstName} {this.props.profile.lastName}</Card.Header>
-          <Card.Meta><span>{this.props.profile.address}</span></Card.Meta>
-          <Card.Description>
+      <Item>
+        <Item.Image size='small' floated='left' src={this.props.profile.image} />
+
+        <Item.Content>
+          <Item.Header as='a'>{this.props.profile.firstName}{this.props.profile.lastName}</Item.Header>
+          <Item.Description>
             {this.props.profile.description}
-          </Card.Description>
-        </Card.Content>
-      </Card>
+          </Item.Description>
+          <Item.Extra>{this.props.profile.address}</Item.Extra>
+        </Item.Content>
+      </Item>
+
     );
   }
 }
