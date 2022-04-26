@@ -13,10 +13,10 @@ class NavBar extends React.Component {
       fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '1.5vw',
     };
     return (<Menu style={menuStyle} attached="top" borderless inverted>
-      <Item.Image id={'nav-logo'} fluid size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
+      <Item.Image id={'nav-logo'} fluid size={'small'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
       </Item.Image>
       {this.props.currentUser ? ([
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/map" key='add'>Map</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/locations" key='locations'>Locations</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-list" key='vendorlist'>Vendors</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/top-choices" key='topChoices'>Top Choices</Menu.Item>,
       ]) : ''}
