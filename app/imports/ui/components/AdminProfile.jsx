@@ -32,15 +32,7 @@ class AdminProfile extends React.Component {
 
 // Require a document to be passed to this component.
 AdminProfile.propTypes = {
-  profile: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    address: PropTypes.string,
-    image: PropTypes.string,
-    description: PropTypes.string,
-    _id: PropTypes.string,
-    owner: PropTypes.string,
-  }).isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

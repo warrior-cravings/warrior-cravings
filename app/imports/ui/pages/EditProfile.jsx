@@ -40,8 +40,8 @@ class EditProfile extends React.Component {
               <TextField name='image'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
-              <ErrorsField/>
               <HiddenField name='owner' />
+              <ErrorsField/>
             </Segment>
           </AutoForm>
         </Grid.Column>
