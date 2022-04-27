@@ -8,8 +8,6 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import AddStuff from '../pages/AddStuff';
-import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -40,9 +38,7 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <ProtectedRoute path="/list" component={ListProfiles}/>
             <ProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
