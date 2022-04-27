@@ -1,11 +1,10 @@
 import React from 'react';
-import { Grid, Segment, Header, Form, Modal, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, Modal, Button, Icon } from 'semantic-ui-react';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
-import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
+import { AutoForm, TextField, SelectField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
-import RadioField from '../forms/controllers/RadioField';
 import { MenuItemFormSchema as formSchema } from '../forms/MenuItemForm';
 import { MenuItems } from '../../api/menuItem/MenuItem';
 
@@ -61,6 +60,13 @@ class CreateMenuItem extends React.Component {
           <Button onClick={() => setOpen(false)}>Cancel</Button>
           <Button onClick={() => setOpen(false)} positive>
               Finished Creating Items
+          </Button>
+          <Button color='red' onClick={() => setOpen(false)}>
+            <Icon name={'times'}/>
+            Cancel
+          </Button>
+          <Button color='green' onClick={() => { swal('Success', 'Saved Changes Successfully', 'success').then(() => window.location.replace('http://localhost:3000/#/vendor-home')); }}>
+            Proceed <Icon name='right chevron'/>
           </Button>
         </Modal.Actions>
       </Modal>

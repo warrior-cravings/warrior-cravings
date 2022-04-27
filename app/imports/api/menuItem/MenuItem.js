@@ -22,8 +22,8 @@ class MenuItemsCollection {
         allowedValues: itemValues.itemType,
       },
       // image: String,
-      ingredients: Array,
-      'ingredients.$': { type: String },
+      ingredients: String,
+      // 'ingredients.$': { type: String },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

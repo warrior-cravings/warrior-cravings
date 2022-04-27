@@ -56,7 +56,7 @@ class EditMenuItem extends React.Component {
         <Modal.Actions>
           <Button onClick={() => setOpen(false)}>Cancel</Button>
           <Button onClick={() => setOpen(false)} positive>
-              Done
+              Finished Editing Item
           </Button>
         </Modal.Actions>
       </Modal>
