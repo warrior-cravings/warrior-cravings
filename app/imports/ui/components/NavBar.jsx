@@ -10,21 +10,23 @@ import { Roles } from 'meteor/alanning:roles';
 class NavBar extends React.Component {
   render() {
     const menuStyle = {
-      fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '1.5vw',
+      fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '1vw',
     };
     return (<Menu style={menuStyle} attached="top" borderless inverted>
-      <Item.Image id={'nav-logo'} size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
+      <Item.Image id={'nav-logo'} size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'
       </Item.Image>
       {this.props.currentUser ? ([
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/map" key='add'>Map</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/locations" key='locations'>Locations</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-list" key='vendorlist'>Vendors</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="list" key='list'>Profile</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/top-choices" key='topChoices'>Top Choices</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/userhome" key='userHome'>User Home</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/adminhome" key='adminHome'>Admin Home</Menu.Item>,
       ]) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
         <Menu.Item as={NavLink} activeClassName="active" exact to="/home" key='vendor'>Vendor</Menu.Item>,
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/add-item" key='add-item'>Add Menu Item</Menu.Item>,
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/edit-item" key='edit-item'>Edit Menu Item</Menu.Item>) : ''}
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/add-item" key='add-item'>Add Menu Item</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/edit-item" key='edit-item'>Edit Menu Item</Menu.Item>) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
         <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>) : ''
       }
