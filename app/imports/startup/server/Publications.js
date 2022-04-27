@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { MenuItems } from '../../api/menuItem/MenuItem';
-import { Vendors } from '../../api/vendor/Vendor';
+import { Profiles } from '../../api/profile/Profiles';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -14,19 +13,10 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-// Vendor-level publication
-Meteor.publish(MenuItems.vendorPublicationName, function () {
+Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return MenuItems.collection.find();
-  }
-  return this.ready();
-});
-
-// Vendor-level publication
-Meteor.publish(Vendors.vendorPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'vendor')) {
-    return Vendors.collection.find();
+    const username = Meteor.users.findOne(this.userId).username;
+    return Profiles.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -36,6 +26,13 @@ Meteor.publish(Vendors.vendorPublicationName, function () {
 Meteor.publish(Stuffs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Stuffs.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Profiles.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Profiles.collection.find();
   }
   return this.ready();
 });
