@@ -59,31 +59,26 @@ class Locations extends React.Component {
                 <div className="ui divider"></div>
                 <List.Content>
                   <List.Header>4. Korean Studies</List.Header>
-                  <List.Item><a href="https://manoa.hawaii.edu/food/sistah/">Sistah Truck (Thursday)</a></List.Item>
                   <List.Item><a href="https://manoa.hawaii.edu/food/hot-tacos/">Hot Tacos (Friday)</a></List.Item>
                 </List.Content>
                 <Divider hidden />
                 <List.Content>
                   <List.Header>5. Architecture</List.Header>
-                  <List.Item><a href="https://manoa.hawaii.edu/food/sistah/">Sistah Truck (Wednesday)</a></List.Item>
                   <List.Item><a href="https://manoa.hawaii.edu/food/hot-tacos/">Hot Tacos (Thursday)</a></List.Item>
                 </List.Content>
                 <Divider hidden />
                 <List.Content>
                   <List.Header>8. Kuykendall</List.Header>
-                  <List.Item><a href="https://manoa.hawaii.edu/food/sistah/">Sistah Truck (Tuesday)</a></List.Item>
                   <List.Item><a href="https://manoa.hawaii.edu/food/hot-tacos/">Hot Tacos (Wednesday)</a></List.Item>
                 </List.Content>
                 <Divider hidden />
                 <List.Content>
                   <List.Header>10. Kennedy Theatre</List.Header>
-                  <List.Item><a href="https://manoa.hawaii.edu/food/sistah/">Sistah Truck (Friday)</a></List.Item>
                   <List.Item><a href="https://manoa.hawaii.edu/food/hot-tacos/">Hot Tacos (Monday)</a></List.Item>
                 </List.Content>
                 <Divider hidden />
                 <List.Content>
                   <List.Header>12. POST 2</List.Header>
-                  <List.Item><a href="https://manoa.hawaii.edu/food/sistah/">Sistah Truck (Monday)</a></List.Item>
                   <List.Item><a href="https://manoa.hawaii.edu/food/hot-tacos/">Hot Tacos (Tuesday)</a></List.Item>
                 </List.Content>
                 <Divider hidden />
