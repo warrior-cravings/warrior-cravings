@@ -15,10 +15,8 @@ class VendorsCollection {
     this.schema = new SimpleSchema({
       name: String,
       description: String,
-      images: Array,
-      'images.$': { type: String },
-      // mapLocation: String,
-      buildingLocation: String,
+      image: String,
+      location: String,
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

@@ -16,8 +16,12 @@ import ListProfiles from '../pages/ListProfiles';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
 import AddProfile from '../pages/AddProfile';
+import ListVendors from '../pages/ListVendors';
+import EditVendor from '../pages/EditVendor';
+import AddVendor from '../pages/AddVendor';
 import AdminHome from '../pages/AdminHome';
 import UserHome from '../pages/UserHome';
+import VendorHome from '../pages/VendorHome';
 import Locations from '../pages/Locations';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -34,11 +38,15 @@ class App extends React.Component {
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListProfiles}/>
+            <ProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>
             <ProtectedRoute path="/addPro" component={AddProfile}/>
+            <ProtectedRoute path="/addVen" component={AddVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
+            <ProtectedRoute path="/editVen/:_id" component={EditVendor}/>
             <ProtectedRoute path="/userhome" component={UserHome}/>
+            <ProtectedRoute path="/vendorhome" component={VendorHome}/>
             <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
             <Route component={NotFound}/>
           </Switch>
