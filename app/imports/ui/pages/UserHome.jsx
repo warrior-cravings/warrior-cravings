@@ -22,7 +22,7 @@ class UserHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/addstuff">
+            <Link to="/list">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>My Profile</Header>
             </Link>
