@@ -3,8 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Profiles } from '../../api/profile/Profiles';
-import Profile from '../components/Profile';
+import AdminProfile from '../components/AdminProfile';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListProfilesAdmin extends React.Component {
@@ -15,14 +16,25 @@ class ListProfilesAdmin extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    if (this.props.profiles.length === 0) {
+      return (
+        <Container>
+          <Header as="h2" textAlign="center" inverted>Profile</Header>
+          <Card.Group>
+            <Link to={'/addPro/'}>Add Profile</Link>
+          </Card.Group>
+        </Container>
+      );
+    }
     return (
       <Container>
-        <Header as="h2" textAlign="center" inverted>List Profiles</Header>
+        <Header as="h2" textAlign="center" inverted>Profile</Header>
         <Card.Group>
-          {this.props.profiles.map((profile, index) => (<Profile key={index} profile={profile}/>))}
+          {this.props.profiles.map((profile, index) => (<AdminProfile key={index} profile={profile}/>))}
         </Card.Group>
       </Container>
     );
+
   }
 }
 

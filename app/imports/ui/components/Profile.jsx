@@ -1,23 +1,30 @@
 import React from 'react';
-import { Item } from 'semantic-ui-react';
+import { Card, Grid, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Profile extends React.Component {
   render() {
+    const text = { paddingTop: '50px', fontSize: '20px' };
     return (
-      <Item>
-        <Item.Image size='small' floated='left' src={this.props.profile.image} />
-        <Item.Content>
-          <Item.Header as='a'>{this.props.profile.firstName}{this.props.profile.lastName}</Item.Header>
-          <Item.Description>
-            {this.props.profile.description}
-          </Item.Description>
-          <Item.Extra>{this.props.profile.address}</Item.Extra>
-        </Item.Content>
-      </Item>
-
+      <Grid columns={2}>
+        <Grid.Column>
+          <Card>
+            <Image src={this.props.profile.image} wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>{this.props.profile.firstName} {this.props.profile.lastName}</Card.Header>
+            </Card.Content>
+            <Card.Content extra>
+              <Link to={`/edit/${this.props.profile._id}`}>Edit</Link>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
+        <Grid.Column>
+          <h2>About Me</h2>
+          <p style={text}>{this.props.profile.description}</p>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
@@ -30,6 +37,7 @@ Profile.propTypes = {
     address: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
