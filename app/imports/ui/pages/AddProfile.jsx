@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
 import { Profiles } from '../../api/profile/Profiles';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -35,7 +34,7 @@ class AddProfile extends React.Component {
           swal('Success', 'Item added successfully', 'success');
           formRef.reset();
           // eslint-disable-next-line no-undef
-          window.location.replace('http://localhost:3000/#/list/');
+          window.location.replace('https://warrior-cravings.xyz/#/list');
         }
       });
   }
@@ -54,9 +53,7 @@ class AddProfile extends React.Component {
               <TextField name='address'/>
               <TextField name='image'/>
               <LongTextField name='description'/>
-              {/* eslint-disable-next-line no-undef */}
               <SubmitField value='Submit'/>
-              <Link to='/list/'>Back to Profile</Link>
               <ErrorsField/>
             </Segment>
           </AutoForm>
