@@ -12,43 +12,45 @@ class Locations extends React.Component {
           </Grid.Column>
           <Grid.Column width={3}>
             <List>
-              <h2 className="ui red header">Auxillary Services</h2>
-              <div className="ui divider"></div>
-              <List.Content>
-                <List.Header>1. Business Administration</List.Header>
-                <List.Item><a href="https://manoa.hawaii.edu/food/the-bean-counter//">The Bean Counter</a></List.Item>
-              </List.Content>
-              <Divider hidden />
-              <List.Content>
-                <List.Header>2. Saunders</List.Header>
-                <List.Item><a href="https://manoa.hawaii.edu/food/da-spot/">Da Spot</a></List.Item>
-              </List.Content>
-              <Divider hidden />
-              <List.Content>
-                <List.Header>3. Paradise Palms Café</List.Header>
-                <List.Item><a href="https://manoa.hawaii.edu/food/dunkin/">Dunkin Donuts</a></List.Item>
-                <List.Item><a href="https://manoa.hawaii.edu/food/holoholo-grill/">Holoholo Grill</a></List.Item>
-                <List.Item><a href="https://manoa.hawaii.edu/food/ll-hawaiian-barbecue/">L&L Barbecue</a></List.Item>
-                <List.Item><a href="https://manoa.hawaii.edu/food/lasoon/">Lasoon</a></List.Item>
-                <List.Item><a href="https://manoa.hawaii.edu/food/le-crepe-cafe/">Le Crepe Cafe</a></List.Item>
-                <List.Item><a href="https://manoa.hawaii.edu/food/panda-express/">Panda Express</a></List.Item>
-              </List.Content>
-              <Divider hidden />
-              <List.Content>
-                <List.Header>9. Krauss</List.Header>
-                <List.Item><a href="https://manoa.hawaii.edu/food/ono-seafood/">Ono Seafood</a></List.Item>
-                <List.Item><a href="https://manoa.hawaii.edu/food/kamitoku-ramen/">Kamitoku Ramen</a></List.Item>
-              </List.Content>
-              <Divider hidden />
-              <List.Content>
-                <List.Header>11. POST</List.Header>
-                <List.Item><a href="https://manoa.hawaii.edu/food/kamitoku-ramen/">Kamitoku Ramen</a></List.Item>
-              </List.Content>
-              <Divider hidden />
-              <List.Content>
-                <List.Header>14. Athletic Complex</List.Header>
-                <List.Item><a href="https://manoa.hawaii.edu/food/ll-hawaiian-barbecue/">L&L Barbecue</a></List.Item>
-              </List.Content>
+              <List.Item>
+                <h2 className="ui red header">Auxiliary Services</h2>
+                <div className="ui divider"></div>
+                <List.Content>
+                  <List.Header>1. Business Administration</List.Header>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/the-bean-counter//">The Bean Counter</a></List.Item>
+                </List.Content>
+                <Divider hidden />
+                <List.Content>
+                  <List.Header>2. Saunders</List.Header>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/da-spot/">Da Spot</a></List.Item>
+                </List.Content>
+                <Divider hidden />
+                <List.Content>
+                  <List.Header>3. Paradise Palms Café</List.Header>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/dunkin/">Dunkin Donuts</a></List.Item>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/holoholo-grill/">Holoholo Grill</a></List.Item>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/ll-hawaiian-barbecue/">L&L Barbecue</a></List.Item>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/lasoon/">Lasoon</a></List.Item>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/le-crepe-cafe/">Le Crepe Cafe</a></List.Item>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/panda-express/">Panda Express</a></List.Item>
+                </List.Content>
+                <Divider hidden />
+                <List.Content>
+                  <List.Header>9. Krauss</List.Header>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/ono-seafood/">Ono Seafood</a></List.Item>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/kamitoku-ramen/">Kamitoku Ramen</a></List.Item>
+                </List.Content>
+                <Divider hidden />
+                <List.Content>
+                  <List.Header>11. POST</List.Header>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/kamitoku-ramen/">Kamitoku Ramen</a></List.Item>
+                </List.Content>
+                <Divider hidden />
+                <List.Content>
+                  <List.Header>14. Athletic Complex</List.Header>
+                  <List.Item><a href="https://manoa.hawaii.edu/food/ll-hawaiian-barbecue/">L&L Barbecue</a></List.Item>
+                </List.Content>
+              </List.Item>
             </List>
           </Grid.Column>
           <Divider hidden />

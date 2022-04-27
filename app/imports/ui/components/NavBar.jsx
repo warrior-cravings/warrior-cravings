@@ -10,10 +10,10 @@ import { Roles } from 'meteor/alanning:roles';
 class NavBar extends React.Component {
   render() {
     const menuStyle = {
-      fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '1.5vw',
+      fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '1vw',
     };
     return (<Menu style={menuStyle} attached="top" borderless inverted>
-      <Item.Image id={'nav-logo'} fluid size={'small'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
+      <Item.Image id={'nav-logo'} fluid size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
       </Item.Image>
       {this.props.currentUser ? ([
         <Menu.Item as={NavLink} activeClassName="active" exact to="/locations" key='locations'>Locations</Menu.Item>,
