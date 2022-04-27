@@ -3,11 +3,12 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import StuffItemAdmin from '../components/StuffItemAdmin';
 import { MenuItems } from '../../api/menuItem/MenuItem';
+import MenuItemVendor from '../components/MenuItemVendor';
+import CreateMenuItem from '../components/CreateMenuItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuffAdmin extends React.Component {
+class ListMenuItemVendor extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -18,27 +19,29 @@ class ListStuffAdmin extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Stuff (Admin)</Header>
+        <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
         <Table celled>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Quantity</Table.HeaderCell>
-              <Table.HeaderCell>Condition</Table.HeaderCell>
-              <Table.HeaderCell>Owner</Table.HeaderCell>
+              <Table.HeaderCell>Meal Type</Table.HeaderCell>
+              <Table.HeaderCell>Ingredients</Table.HeaderCell>
+              <Table.HeaderCell>Vendor</Table.HeaderCell>
+              <Table.HeaderCell>Edit Item</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.menuItems.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
+            {this.props.menuItems.map((menuItem) => <MenuItemVendor key={menuItem._id} Item={menuItem} />)}
           </Table.Body>
         </Table>
+        <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
       </Container>
     );
   }
 }
 
 // Require an array of Stuff documents in the props.
-ListStuffAdmin.propTypes = {
+ListMenuItemVendor.propTypes = {
   menuItems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -51,8 +54,9 @@ export default withTracker(() => {
   const ready = subscription.ready();
   // Get the Stuff documents
   const menuItems = MenuItems.collection.find({}).fetch();
+  console.log(menuItems);
   return {
     menuItems,
     ready,
   };
-})(ListStuffAdmin);
+})(ListMenuItemVendor);

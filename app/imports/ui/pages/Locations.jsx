@@ -8,7 +8,7 @@ class Locations extends React.Component {
       <Container>
         <Grid columns='three' divided>
           <Grid.Column width={9}>
-            <Image src='https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/vendor_map3.jpg' fill centered />
+            <Image src='https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/vendor_map3.jpg' centered />
           </Grid.Column>
           <Grid.Column width={3}>
             <List>
