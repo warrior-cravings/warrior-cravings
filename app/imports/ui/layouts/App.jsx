@@ -12,11 +12,17 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
-import CreateMenuItem from '../components/CreateMenuItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import ListProfiles from '../pages/ListProfiles';
+import ListProfilesAdmin from '../pages/ListProfilesAdmin';
+import EditProfile from '../pages/EditProfile';
+import AddProfile from '../pages/AddProfile';
+import AdminHome from '../pages/AdminHome';
+import UserHome from '../pages/UserHome';
+import Locations from '../pages/Locations';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -27,6 +33,7 @@ class App extends React.Component {
           <NavBar/>
           <Switch>
             <Route exact path="/" component={Landing}/>
+            <Route exact path="/locations" component={Locations}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
@@ -35,6 +42,12 @@ class App extends React.Component {
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <ProtectedRoute path="/list" component={ListProfiles}/>
+            <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>
+            <ProtectedRoute path="/addPro" component={AddProfile}/>
+            <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
+            <ProtectedRoute path="/userhome" component={UserHome}/>
+            <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

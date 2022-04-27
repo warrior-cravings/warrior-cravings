@@ -3,6 +3,20 @@
     "appId": "KcwWNyb67XBQBrzsK",
     "appSecret": "73297899-2c3e-4945-ac5a-4314c5f529b5"
   },
+
+  "defaultProfiles" : [{
+  "firstName": "Philip", "lastName": "Johnson", "address": "POST 307, University of Hawaii",
+    "owner": "john@foo.com",
+  "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
+  "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com."
+},
+    {
+      "firstName": "Philip", "lastName": "Johnson", "address": "POST 307, University of Hawaii",
+      "owner": "admin@foo.com",
+      "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
+      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com."
+    }
+    ],
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
