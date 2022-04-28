@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import EditMenuItem from './EditMenuItem';
 
 /** Renders a single row in the List Menu (Admin) table. See pages/ListMenuAdmin.jsx. */
 class MenuItemVendor extends React.Component {
