@@ -1,11 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../api/menuItem/MenuItem';
 import MenuItemVendor from '../components/MenuItemVendor';
 import CreateMenuItem from '../components/CreateMenuItem';
+import { Vendors } from '../../api/vendor/Vendor';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMenuItemVendor extends React.Component {
@@ -17,6 +19,11 @@ class ListMenuItemVendor extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    const email = Meteor.user().username;
+    const vendor = Vendors.collection.findOne({ owner: email });
+    console.log(email, vendor.name);
+    const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === vendor.name);
+    console.log(vendorItems);
     return (
       <Container>
         <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
@@ -31,6 +38,7 @@ class ListMenuItemVendor extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
+            {/* to change to filter by which vendor account is being used. vendorItems <=> this.props.menuItems */}
             {this.props.menuItems.map((menuItem) => <MenuItemVendor key={menuItem._id} Item={menuItem} />)}
           </Table.Body>
         </Table>
@@ -50,11 +58,11 @@ ListMenuItemVendor.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(MenuItems.vendorPublicationName);
+  const subscription2 = Meteor.subscribe(Vendors.vendorPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready();
+  const ready = subscription.ready() && subscription2.ready();
   // Get the Stuff documents
   const menuItems = MenuItems.collection.find({}).fetch();
-  console.log(menuItems);
   return {
     menuItems,
     ready,

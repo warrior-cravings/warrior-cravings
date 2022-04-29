@@ -1,92 +1,77 @@
 import React from 'react';
-import { Grid, Segment, Header, Form, Modal, Button } from 'semantic-ui-react';
-// Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
+import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
+import swal from 'sweetalert';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { AutoForm, TextField, SubmitField } from 'uniforms-semantic';
-import swal from 'sweetalert';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import PropTypes from 'prop-types';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
-import { MenuItemFormSchema as formSchema } from '../forms/MenuItemForm';
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { MenuItems } from '../../api/menuItem/MenuItem';
-import { Vendors } from '../../api/vendor/Vendor';
+import MultiSelectField from '../forms/controllers/MultiSelectField';
 
-const bridge = new SimpleSchema2Bridge(formSchema);
+const bridge = new SimpleSchema2Bridge(MenuItems.schema);
 
-/** Renders the Page for Editing a document. */
+/** Renders the Page for editing a single document. */
 class EditMenuItem extends React.Component {
-  /** On submit, try to insert the data. If successful, reset the form. */
+
+  // On successful submit, insert the data.
   submit(data) {
-    const { name, _id } = data;
-    MenuItems.collection.update(_id, { $set: { name } }, (error) => (error ?
+    const { name, vendor, mealType, ingredients, _id } = data;
+    console.log(name, vendor, mealType, ingredients, _id);
+    MenuItems.collection.update(_id, { $set: { name, vendor, mealType, ingredients } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
 
-  EditMenuItemModal() {
-    const [open, setOpen] = React.useState(false);
-    const model = _.extend({}, this.props.menuItemsDoc, this.props.vendorsDoc);
-    return (
-      <Modal
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
-        open={open}
-        trigger={<Button>Edit Menu Item</Button>}
-      >
-        <Modal.Header>Edit Menu Item</Modal.Header>
-        <Modal.Content>
-          <Grid container centered>
-            <Grid.Column>
-              <Header as="h2" textAlign="center">Edit Menu Item</Header>
-              <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={model}>
-                <Segment>
-                  <Form.Group widths={'equal'}>
-                    <TextField name='name' showInlineError={true} placeholder={'Item Name'}/>
-                    <TextField name='vendor' disabled={true} showInlineError={false} placeholder={'Vendor'}/>
-                  </Form.Group>
-                  <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType(optional)'}/>
-                  <MultiSelectField name='ingredients' showInlineError={true} placeholder={'Select Ingredients (optional)'}/>
-                  <SubmitField value='Submit'/>
-                </Segment>
-              </AutoForm>
-            </Grid.Column>
-          </Grid>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button onClick={() => setOpen(false)}>Cancel</Button>
-          <Button onClick={() => setOpen(false)} positive>
-              Finished Editing Item
-          </Button>
-        </Modal.Actions>
-      </Modal>
-    );
+  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
+  render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
-  render() {
+  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
+  renderPage() {
     return (
-      <this.EditMenuItemModal/>
+      <Grid container centered>
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Menu Item</Header>
+          <Segment>
+            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
+              <Form.Group widths={'equal'}>
+                <TextField name='name' showInlineError={true}/>
+                <HiddenField name='vendor'/>
+              </Form.Group>
+              <MultiSelectField name='mealType' showInlineError={true}/>
+              <TextField name='ingredients' showInlineError={true}/>
+              <SubmitField value='Submit'/>
+              <ErrorsField/>
+            </AutoForm>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
+
+// Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use.
 EditMenuItem.propTypes = {
-  vendorsDoc: PropTypes.object,
-  menuItemsDoc: PropTypes.object,
+  doc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(({ match }) => {
-  // Get the email from the URL field. See imports/ui/layouts/App.jsx for the route containing :email.
-  const email = match.params._id;
-  // Request StudentData and Enrollment docs. Won't be locally available until ready() returns true.
-  const VendorDataSubscription = Meteor.subscribe('Vendors');
-  const MenuItemDataSubscription = Meteor.subscribe('MenuItems');
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe(MenuItems.vendorPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  // Get the document
+  const doc = MenuItems.collection.findOne(documentId);
+  console.log(doc, documentId, match);
   return {
-    vendorsDoc: Vendors.findOne({ email }),
-    menuItemsDoc: MenuItems.findOne({ email }),
-    ready: VendorDataSubscription.ready() && MenuItemDataSubscription.ready(),
+    doc,
+    ready,
   };
 })(EditMenuItem);

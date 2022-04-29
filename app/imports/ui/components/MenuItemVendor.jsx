@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import EditMenuItem from './EditMenuItem';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Menu (Admin) table. See pages/ListMenuAdmin.jsx. */
 class MenuItemVendor extends React.Component {
@@ -12,7 +12,7 @@ class MenuItemVendor extends React.Component {
         <Table.Cell>{this.props.Item.mealType.toString()}</Table.Cell>
         <Table.Cell>{this.props.Item.ingredients.toString()}</Table.Cell>
         <Table.Cell>{this.props.Item.vendor.toString()}</Table.Cell>
-        {/* <Table.Cell>{<EditMenuItem id={this.props.Item._id}/>}</Table.Cell> */}
+        <Table.Cell>{<Link to={`/vendor/menuitem-edit/${this.props.Item._id}`}>Edit</Link>}</Table.Cell>
       </Table.Row>
     );
   }

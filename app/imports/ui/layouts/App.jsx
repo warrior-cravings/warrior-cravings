@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import AddStuff from '../pages/AddStuff';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
+import EditMenuItem from '../components/EditMenuItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -24,6 +25,7 @@ import AdminHome from '../pages/AdminHome';
 import UserHome from '../pages/UserHome';
 import VendorHome from '../pages/VendorHome';
 import Locations from '../pages/Locations';
+import EditStuff from '../pages/EditStuff';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,6 +41,7 @@ class App extends React.Component {
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
             <ProtectedRoute path="/list" component={ListProfiles}/>
             <ProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
