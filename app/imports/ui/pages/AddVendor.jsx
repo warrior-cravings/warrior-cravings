@@ -54,7 +54,7 @@ class AddVendor extends React.Component {
               <LongTextField name='description'/>
               {/* eslint-disable-next-line no-undef */}
               <SubmitField value='Submit'/>
-              <Link to='/list/'>Back to Vendor Profile</Link>
+              <Link to='/listVen/'>Back to Vendor Profile</Link>
               <ErrorsField/>
             </Segment>
           </AutoForm>
@@ -69,7 +69,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Vendors.userPublicationName);
+  const subscription = Meteor.subscribe(Vendors.vendorPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the document

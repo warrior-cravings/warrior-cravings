@@ -16,7 +16,7 @@ class Vendor extends React.Component {
               <Card.Header>{this.props.vendor.name}</Card.Header>
             </Card.Content>
             <Card.Content extra>
-              <Link to={`/edit/${this.props.vendor._id}`}>Edit</Link>
+              <Link to={`/editVen/:_id${this.props.vendor._id}`}>Edit</Link>
             </Card.Content>
           </Card>
         </Grid.Column>
