@@ -26,7 +26,7 @@ Meteor.publish(MenuItems.vendorPublicationName, function () {
 
 // Vendor-level publication
 Meteor.publish(Vendors.vendorPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'vendor')) {
+  if ((this.userId)) {
     return Vendors.collection.find();
   }
   return this.ready();

@@ -11,12 +11,12 @@ class Vendor extends React.Component {
       <Grid columns={2}>
         <Grid.Column>
           <Card>
-            <Image src={this.props.vendor.image}/>
+            <Image src={this.props.vendor.image} wrapped ui={false} />
             <Card.Content>
               <Card.Header>{this.props.vendor.name}</Card.Header>
             </Card.Content>
             <Card.Content extra>
-              <Link to={`/editVen/:_id${this.props.vendor._id}`}>Edit</Link>
+              <Link to={`/edit/${this.props.vendor._id}`}>Edit</Link>
             </Card.Content>
           </Card>
         </Grid.Column>
@@ -31,7 +31,13 @@ class Vendor extends React.Component {
 
 // Require a document to be passed to this component.
 Vendor.propTypes = {
-  vendor: PropTypes.object.isRequired,
+  vendor: PropTypes.shape({
+    name: PropTypes.string,
+    location: PropTypes.string,
+    image: PropTypes.string,
+    description: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

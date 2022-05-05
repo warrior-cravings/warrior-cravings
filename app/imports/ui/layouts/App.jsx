@@ -18,6 +18,7 @@ import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
 import AddProfile from '../pages/AddProfile';
 import ListVendors from '../pages/ListVendors';
+import ListVendorsUser from '../pages/ListVendorsUser';
 import EditVendor from '../pages/EditVendor';
 import AddVendor from '../pages/AddVendor';
 import AdminHome from '../pages/AdminHome';
@@ -40,7 +41,8 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
             <ProtectedRoute path="/list" component={ListProfiles}/>
-            <ProtectedRoute path="/listVen" component={ListVendors}/>
+            <VendorProtectedRoute path="/listVen" component={ListVendors}/>
+            <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>
             <ProtectedRoute path="/addPro" component={AddProfile}/>
