@@ -10,7 +10,6 @@ class MenuItemVendor extends React.Component {
         <Table.Cell>{this.props.Item.name}</Table.Cell>
         <Table.Cell>{this.props.Item.mealType.toString()}</Table.Cell>
         <Table.Cell>{this.props.Item.ingredients.toString()}</Table.Cell>
-        <Table.Cell>{this.props.Item.vendor.toString()}</Table.Cell>
       </Table.Row>
     );
   }

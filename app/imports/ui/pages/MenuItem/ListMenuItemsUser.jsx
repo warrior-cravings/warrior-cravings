@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Table, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../../api/menuItem/MenuItem';
@@ -18,20 +18,16 @@ class ListMenuItemUser extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
-    const email = 'vendor@foo.com';
-    const vendor = Vendors.collection.findOne({ owner: email });
-    const vendorItems = this.props.menuItems; // _.filter(this.props.menuItems, (item) => item.vendor === vendor.name);
-    console.log(vendor, vendorItems);
+    const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === this.props.vendorDisplayed.name);
+    console.log(vendorItems);
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Menu Items</Header>
         <Table celled>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Meal Type</Table.HeaderCell>
               <Table.HeaderCell>Ingredients</Table.HeaderCell>
-              <Table.HeaderCell>Vendor</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

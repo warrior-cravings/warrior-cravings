@@ -10,7 +10,7 @@ import { Roles } from 'meteor/alanning:roles';
 class NavBar extends React.Component {
   render() {
     const menuStyle = {
-      fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '1vw',
+      fontFamily: 'UHMFont', backgroundColor: 'red', height: '80', marginBottom: '10px', fontSize: '0.85vw',
     };
     return (<Menu style={menuStyle} attached="top" borderless inverted>
       <Item.Image id={'nav-logo'} size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
@@ -21,13 +21,13 @@ class NavBar extends React.Component {
         <Menu.Item as={NavLink} activeClassName="active" exact to="list" key='list'>Profile</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/top-choices" key='topChoices'>Top Choices</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/userhome" key='userHome'>User Home</Menu.Item>,
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/adminhome" key='adminHome'>Admin Home</Menu.Item>,
       ]) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
         <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor/vendor-home" key='vendor'>Menu Items</Menu.Item>) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/adminhome" key='adminHome'>Admin Home</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/vendor-home" key='vendoradmin'>Menu Items</Menu.Item>,
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>All Profiles</Menu.Item>]) : ''
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/listallprofiles" key='admin'>All Profiles</Menu.Item>]) : ''
       }
       {<Menu.Item position="right">
         {this.props.currentUser === '' ? (<Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>

@@ -3,9 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendor';
-import Vendor from '../components/Vendor';
+import VendorUser from '../components/VendorUser';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListVendors extends React.Component {
@@ -18,8 +17,10 @@ class ListVendors extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center" inverted>Vendor</Header>
-        {this.props.vendors.map((vendor, index) => (<Vendor key={index} vendor={vendor}/>))}
+        <Header as="h2" textAlign="center">Vendor</Header>
+        <Card.Group itemsPerRow={1}>
+          {this.props.vendors.map((vendor, index) => (<VendorUser key={index} vendor={vendor}/>))}
+        </Card.Group>
       </Container>
     );
 

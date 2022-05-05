@@ -7,7 +7,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import AddStuff from '../pages/AddStuff';
 import ListMenuItemsUser from '../pages/MenuItem/ListMenuItemsUser';
 import ListMenuItemsVendor from '../pages/MenuItem/ListMenuItemsVendor';
 import ListMenuItemsAdmin from '../pages/MenuItem/ListMenuItemsAdmin';
@@ -51,15 +50,14 @@ class App extends React.Component {
             <ProtectedRoute path="/list" component={ListProfiles}/>
             <VendorProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
             <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>
             <ProtectedRoute path="/addPro" component={AddProfile}/>
             <ProtectedRoute path="/addVen" component={AddVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
             <VendorProtectedRoute path="/editVen/:_id" component={EditVendor}/>
             <ProtectedRoute path="/userhome" component={UserHome}/>
-            <ProtectedRoute path="/vendorhome" component={VendorHome}/>
-            <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
+            <ProtectedRoute path="/vendor/vendorhome" component={VendorHome}/>
+            <AdminProtectedRoute path="/admin/adminhome" component={AdminHome}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
