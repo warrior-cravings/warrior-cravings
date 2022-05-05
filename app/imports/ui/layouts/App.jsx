@@ -8,13 +8,14 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import AddStuff from '../pages/AddStuff';
-import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
-import EditMenuItem from '../components/EditMenuItem';
+import ListMenuItemsUser from '../pages/MenuItem/ListMenuItemsUser';
+import ListMenuItemsVendor from '../pages/MenuItem/ListMenuItemsVendor';
+import ListMenuItemsAdmin from '../pages/MenuItem/ListMenuItemsAdmin';
+import EditMenuItem from '../components/MenuItem/EditMenuItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import ListProfiles from '../pages/ListProfiles';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
 import AddProfile from '../pages/AddProfile';
@@ -25,7 +26,6 @@ import AdminHome from '../pages/AdminHome';
 import UserHome from '../pages/UserHome';
 import VendorHome from '../pages/VendorHome';
 import Locations from '../pages/Locations';
-import EditStuff from '../pages/EditStuff';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -40,9 +40,10 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
+            <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
+            <VendorProtectedRoute path="/vendor/vendor-home" component={ListMenuItemsVendor}/>
             <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
-            <ProtectedRoute path="/list" component={ListProfiles}/>
+            <AdminProtectedRoute path="/admin/vendor-home" component={ListMenuItemsAdmin}/>
             <ProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>

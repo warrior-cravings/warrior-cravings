@@ -1,13 +1,14 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Form, Button } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { MenuItems } from '../../api/menuItem/MenuItem';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
+import { NavLink } from 'react-router-dom';
+import { MenuItems } from '../../../api/menuItem/MenuItem';
+import MultiSelectField from '../../forms/controllers/MultiSelectField';
 
 const bridge = new SimpleSchema2Bridge(MenuItems.schema);
 
@@ -46,6 +47,7 @@ class EditMenuItem extends React.Component {
               <ErrorsField/>
             </AutoForm>
           </Segment>
+          <Button as={NavLink} activeClassName="active" exact to="/vendor-home" key='vendor'>Return to list</Button>
         </Grid.Column>
       </Grid>
     );

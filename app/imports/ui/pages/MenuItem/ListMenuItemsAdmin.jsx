@@ -1,13 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { _ } from 'meteor/underscore';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { MenuItems } from '../../api/menuItem/MenuItem';
-import MenuItemVendor from '../components/MenuItemVendor';
-import CreateMenuItem from '../components/CreateMenuItem';
-import { Vendors } from '../../api/vendor/Vendor';
+import { MenuItems } from '../../../api/menuItem/MenuItem';
+import MenuItemVendor from '../../components/MenuItem/MenuItemVendor';
+import CreateMenuItem from '../../components/MenuItem/CreateMenuItem';
+import { Vendors } from '../../../api/vendor/Vendor';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMenuItemVendor extends React.Component {
@@ -19,11 +18,6 @@ class ListMenuItemVendor extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
-    const email = Meteor.user().username;
-    const vendor = Vendors.collection.findOne({ owner: email });
-    console.log(email, vendor.name);
-    const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === vendor.name);
-    console.log(vendorItems);
     return (
       <Container>
         <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
@@ -35,6 +29,7 @@ class ListMenuItemVendor extends React.Component {
               <Table.HeaderCell>Ingredients</Table.HeaderCell>
               <Table.HeaderCell>Vendor</Table.HeaderCell>
               <Table.HeaderCell>Edit Item</Table.HeaderCell>
+              <Table.HeaderCell>Delete Item</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -50,6 +45,7 @@ class ListMenuItemVendor extends React.Component {
 
 // Require an array of Stuff documents in the props.
 ListMenuItemVendor.propTypes = {
+  vendorDisplayed: PropTypes.object,
   menuItems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };

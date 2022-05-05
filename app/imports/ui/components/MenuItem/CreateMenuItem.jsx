@@ -5,10 +5,10 @@ import { Grid, Segment, Header, Form, Modal, Button } from 'semantic-ui-react';
 import { AutoForm, TextField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
-import { MenuItemFormSchema as formSchema } from '../forms/MenuItemForm';
-import { MenuItems } from '../../api/menuItem/MenuItem';
-import { Vendors } from '../../api/vendor/Vendor';
+import MultiSelectField from '../../forms/controllers/MultiSelectField';
+import { MenuItemFormSchema as formSchema } from '../../forms/MenuItemForm';
+import { MenuItems } from '../../../api/menuItem/MenuItem';
+import { Vendors } from '../../../api/vendor/Vendor';
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
