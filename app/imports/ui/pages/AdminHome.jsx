@@ -22,7 +22,7 @@ class AdminHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/list">
+            <Link to="/admin">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>All Profiles</Header>
             </Link>
