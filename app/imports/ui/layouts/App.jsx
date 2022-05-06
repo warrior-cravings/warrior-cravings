@@ -27,6 +27,7 @@ import AdminHome from '../pages/AdminHome';
 import UserHome from '../pages/UserHome';
 import VendorHome from '../pages/VendorHome';
 import Locations from '../pages/Locations';
+import Home from '../pages/Home';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -47,17 +48,18 @@ class App extends React.Component {
             <AdminProtectedRoute path="/admin/vendor-home" component={ListMenuItemsAdmin}/>
             <ProtectedRoute path="/listVen" component={ListVendors}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
-            <ProtectedRoute path="/list" component={ListProfiles}/>
+            <ProtectedRoute path="/myprofile" component={ListProfiles}/>
             <VendorProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
-            <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>
+            <AdminProtectedRoute path="/admin/listallprofiles" component={ListProfilesAdmin}/>
             <ProtectedRoute path="/addPro" component={AddProfile}/>
             <ProtectedRoute path="/addVen" component={AddVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
             <VendorProtectedRoute path="/editVen/:_id" component={EditVendor}/>
-            <ProtectedRoute path="/userhome" component={UserHome}/>
-            <ProtectedRoute path="/vendor/vendorhome" component={VendorHome}/>
-            <AdminProtectedRoute path="/admin/adminhome" component={AdminHome}/>
+            {/* <ProtectedRoute path="/userhome" component={UserHome}/> */}
+            <ProtectedRoute path="/home" component={Home}/>
+            {/* <VendorProtectedRoute path="/vendor/vendorhome" component={VendorHome}/> */}
+            {/* <AdminProtectedRoute path="/admin/adminhome" component={AdminHome}/> */}
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
