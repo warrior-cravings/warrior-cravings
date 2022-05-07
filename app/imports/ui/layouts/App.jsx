@@ -43,7 +43,7 @@ class App extends React.Component {
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
             <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
             <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>
-            <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/vendor/vendor-home" component={ListMenuItemsVendor}/>
             <AdminProtectedRoute path="/admin/listallprofiles" component={ListProfilesAdmin}/>
             <AdminProtectedRoute path="/admin/listallvendors" component={ListVendorsAdmin}/>
             <AdminProtectedRoute path="/admin/listallmenuitems" component={ListMenuItemsAdmin}/>
