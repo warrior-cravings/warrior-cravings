@@ -15,17 +15,14 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import ListProfilesAdmin from '../pages/ListProfilesAdmin';
+import ListProfilesAdmin from '../pages/Lists/ListProfilesAdmin';
 import EditProfile from '../pages/EditProfile';
 import AddProfile from '../pages/AddProfile';
-import ListVendors from '../pages/ListVendors';
-import ListProfiles from '../pages/ListProfiles';
-import ListVendorsUser from '../pages/ListVendorsUser';
+import ListProfiles from '../pages/Lists/ListProfiles';
+import ListVendorsUser from '../pages/Lists/ListVendorsUser';
+import ListVendorsAdmin from '../pages/Lists/ListVendorsAdmin';
 import EditVendor from '../pages/EditVendor';
-import AddVendor from '../pages/AddVendor';
-import AdminHome from '../pages/AdminHome';
-import UserHome from '../pages/UserHome';
-import VendorHome from '../pages/VendorHome';
+import AddVendor from '../components/Vendor/AddVendor';
 import Locations from '../pages/Locations';
 import Home from '../pages/Home';
 
@@ -42,24 +39,20 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
+            <ProtectedRoute path="/home" component={Home}/>
             <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
-            <VendorProtectedRoute path="/vendor/vendor-home" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>
             <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
-            <AdminProtectedRoute path="/admin/vendor-home" component={ListMenuItemsAdmin}/>
-            <ProtectedRoute path="/listVen" component={ListVendors}/>
+            <AdminProtectedRoute path="/admin/menuitems" component={ListMenuItemsAdmin}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
             <ProtectedRoute path="/myprofile" component={ListProfiles}/>
-            <VendorProtectedRoute path="/listVen" component={ListVendors}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
             <AdminProtectedRoute path="/admin/listallprofiles" component={ListProfilesAdmin}/>
-            <ProtectedRoute path="/addPro" component={AddProfile}/>
-            <ProtectedRoute path="/addVen" component={AddVendor}/>
-            <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
+            <AdminProtectedRoute path="/admin/listallvendors" component={ListVendorsAdmin}/>
+            <AdminProtectedRoute path="/admin/addPro" component={AddProfile}/>
+            <AdminProtectedRoute path="/admin/addVen" component={AddVendor}/>
+            <AdminProtectedRoute path="/edit/:_id" component={EditProfile}/>
             <VendorProtectedRoute path="/editVen/:_id" component={EditVendor}/>
-            {/* <ProtectedRoute path="/userhome" component={UserHome}/> */}
-            <ProtectedRoute path="/home" component={Home}/>
-            {/* <VendorProtectedRoute path="/vendor/vendorhome" component={VendorHome}/> */}
-            {/* <AdminProtectedRoute path="/admin/adminhome" component={AdminHome}/> */}
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
