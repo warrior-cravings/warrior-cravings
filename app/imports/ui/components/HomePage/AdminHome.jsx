@@ -22,7 +22,7 @@ class AdminHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/admin/menuitems">
+            <Link to="/admin/listallmenuitems">
               <Icon color='red' size="massive" name="list layout"/>
               <Header color='red' as='h1'>All Menu Items</Header>
             </Link>

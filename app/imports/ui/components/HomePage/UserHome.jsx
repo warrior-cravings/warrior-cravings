@@ -10,19 +10,19 @@ class UserHome extends React.Component {
       <div style={middlePadding}>
         <Grid id='landing-page' container centered stackable columns={3}>
           <Grid.Column textAlign='center'>
-            <Link to="/addstuff">
+            <Link to="/listVenU">
               <Icon color='red' size="massive" name="utensils"/>
               <Header color='red' as='h1'>Vendors</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/addstuff">
+            <Link to="/topchoices">
               <Icon color='red' size="massive" name="star"/>
               <Header color='red' as='h1'>Top Choices</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/list">
+            <Link to="/myprofile">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>My Profile</Header>
             </Link>

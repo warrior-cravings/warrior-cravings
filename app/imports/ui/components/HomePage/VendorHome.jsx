@@ -22,7 +22,7 @@ class VendorHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/listvendors">
+            <Link to="/myprofile">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>My Vendor Profile</Header>
             </Link>

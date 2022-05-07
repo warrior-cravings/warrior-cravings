@@ -18,7 +18,7 @@ class ListVendors extends React.Component {
     return (
       <Container>
         <Header as="h2" textAlign="center">Vendor</Header>
-        <Card.Group itemsPerRow={1}>
+        <Card.Group itemsPerRow={3}>
           {this.props.vendors.map((vendor, index) => (<VendorUser key={index} vendor={vendor}/>))}
         </Card.Group>
       </Container>
