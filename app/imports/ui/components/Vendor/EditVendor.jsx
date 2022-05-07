@@ -1,12 +1,12 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Vendors } from '../../api/vendor/Vendor';
+import { Vendors } from '../../../api/vendor/Vendor';
 
 const bridge = new SimpleSchema2Bridge(Vendors.schema);
 
@@ -31,7 +31,7 @@ class EditVendor extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Edit Profile</Header>
+          <Header as="h2" textAlign="center">Edit Vendor Profile</Header>
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='name'/>
@@ -40,7 +40,6 @@ class EditVendor extends React.Component {
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
-              <HiddenField name='owner' />
             </Segment>
           </AutoForm>
         </Grid.Column>
@@ -61,7 +60,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Vendors.userPublicationName);
+  const subscription = Meteor.subscribe(Vendors.vendorPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the document

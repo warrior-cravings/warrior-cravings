@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Container, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Vendors } from '../../api/vendor/Vendor';
-import Vendor from '../components/Vendor';
+import { Vendors } from '../../../api/vendor/Vendor';
+import VendorAdmin from '../../components/Vendor/VendorAdmin';
+import AddVendor from '../../components/Vendor/AddVendor';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListVendors extends React.Component {
@@ -16,20 +16,26 @@ class ListVendors extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
-    if (this.props.vendors.length === 0) {
-      return (
-        <Container>
-          <Header as="h2" textAlign="center" inverted>Vendor Profile</Header>
-          <Card.Group>
-            <Link to={'/addVen/'}>Add Vendor Profile</Link>
-          </Card.Group>
-        </Container>
-      );
-    }
     return (
       <Container>
-        <Header as="h2" textAlign="center" inverted>Vendor Profile</Header>
-        <Card.Group>{this.props.vendors.map((vendor, index) => (<Vendor key={index} vendor={vendor}/>))}</Card.Group>
+        <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
+        <AddVendor/>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Image</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Owner</Table.HeaderCell>
+              <Table.HeaderCell>Edit Vendor</Table.HeaderCell>
+              <Table.HeaderCell>Delete Vendor</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {/* to change to filter by which vendor account is being used. vendorItems <=> this.props.menuItems */}
+            {this.props.vendors.map((vendor) => <VendorAdmin key={vendor._id} vendor={vendor} />)}
+          </Table.Body>
+        </Table>
       </Container>
     );
 

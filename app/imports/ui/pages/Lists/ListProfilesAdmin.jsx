@@ -4,8 +4,8 @@ import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Profiles } from '../../api/profile/Profiles';
-import AdminProfile from '../components/AdminProfile';
+import { Profiles } from '../../../api/profile/Profiles';
+import AdminProfile from '../../components/AdminProfile';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListProfilesAdmin extends React.Component {

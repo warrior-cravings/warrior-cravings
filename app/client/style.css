@@ -17,3 +17,26 @@
 #nav-logo {
   margin-left: 20px;
 }
+
+#landing-page-image1 {
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  opacity: 0.70;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0px 2px 3px #666;
+  z-index: -1;
+}
+
+.accent-block {
+  background: url('https://png.pngtree.com/thumb_back/fh260/background/20190222/ourmid/pngtree-black-fashion-summer-hot-pot-food-vegetable-seasoning-potseasoningsummervegetablescornonionchiliblackfashionfoodbanner-image_50572.jpg');
+  height: 60px;
+  width: 100%;
+  opacity: 0.80;
+  text-align: center;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  vertical-align: center;
+  padding: 15px;
+}
+

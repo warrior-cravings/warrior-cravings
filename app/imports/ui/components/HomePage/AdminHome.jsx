@@ -3,28 +3,28 @@ import { Grid, Header, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
-class VendorHome extends React.Component {
+class AdminHome extends React.Component {
   render() {
     const middlePadding = { paddingTop: '100px', paddingBottom: '100px' };
     return (
       <div style={middlePadding}>
         <Grid id='landing-page' container centered stackable columns={3}>
           <Grid.Column textAlign='center'>
-            <Link to="/listVen">
-              <Icon color='red' size="massive" name="utensils"/>
-              <Header color='red' as='h1'>Other Vendors</Header>
+            <Link to="/admin/listallprofiles">
+              <Icon color='red' size="massive" name="users"/>
+              <Header color='red' as='h1'>All Users</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/addstuff">
-              <Icon color='red' size="massive" name="star"/>
-              <Header color='red' as='h1'>Top Choices</Header>
+            <Link to="/admin/listallvendors">
+              <Icon color='red' size="massive" name="shopping basket"/>
+              <Header color='red' as='h1'>All Vendors</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/listvendors">
-              <Icon color='red' size="massive" name="user circle"/>
-              <Header color='red' as='h1'>My Vendor Profile</Header>
+            <Link to="/admin/menuitems">
+              <Icon color='red' size="massive" name="list layout"/>
+              <Header color='red' as='h1'>All Menu Items</Header>
             </Link>
           </Grid.Column>
         </Grid>
@@ -33,4 +33,4 @@ class VendorHome extends React.Component {
   }
 }
 
-export default VendorHome;
+export default AdminHome;
