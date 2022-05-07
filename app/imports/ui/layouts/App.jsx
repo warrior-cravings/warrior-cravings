@@ -21,8 +21,7 @@ import AddProfile from '../pages/AddProfile';
 import ListProfiles from '../pages/Lists/ListProfiles';
 import ListVendorsUser from '../pages/Lists/ListVendorsUser';
 import ListVendorsAdmin from '../pages/Lists/ListVendorsAdmin';
-import EditVendor from '../pages/EditVendor';
-import AddVendor from '../components/Vendor/AddVendor';
+import EditVendor from '../components/Vendor/EditVendor';
 import Locations from '../pages/Locations';
 import Home from '../pages/Home';
 
@@ -43,14 +42,13 @@ class App extends React.Component {
             <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
             <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>
             <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
-            <AdminProtectedRoute path="/admin/menuitems" component={ListMenuItemsAdmin}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
             <ProtectedRoute path="/myprofile" component={ListProfiles}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
             <AdminProtectedRoute path="/admin/listallprofiles" component={ListProfilesAdmin}/>
             <AdminProtectedRoute path="/admin/listallvendors" component={ListVendorsAdmin}/>
+            <AdminProtectedRoute path="/admin/listallmenuitems" component={ListMenuItemsAdmin}/>
             <AdminProtectedRoute path="/admin/addPro" component={AddProfile}/>
-            <AdminProtectedRoute path="/admin/addVen" component={AddVendor}/>
             <AdminProtectedRoute path="/edit/:_id" component={EditProfile}/>
             <VendorProtectedRoute path="/editVen/:_id" component={EditVendor}/>
             <Route component={NotFound}/>

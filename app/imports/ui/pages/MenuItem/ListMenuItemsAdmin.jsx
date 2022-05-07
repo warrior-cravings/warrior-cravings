@@ -5,7 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../../api/menuItem/MenuItem';
 import MenuItemVendor from '../../components/MenuItem/MenuItemVendor';
-import CreateMenuItem from '../../components/MenuItem/CreateMenuItem';
+// import CreateMenuItem from '../../components/MenuItem/CreateMenuItem';
 import { Vendors } from '../../../api/vendor/Vendor';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -33,11 +33,11 @@ class ListMenuItemVendor extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {/* to change to filter by which vendor account is being used. vendorItems <=> this.props.menuItems */}
             {this.props.menuItems.map((menuItem) => <MenuItemVendor key={menuItem._id} Item={menuItem} />)}
           </Table.Body>
         </Table>
-        <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
+        {/* Admin wouldn't need to be able to create a menu item, only edit it */}
+        {/* <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/> */}
       </Container>
     );
   }

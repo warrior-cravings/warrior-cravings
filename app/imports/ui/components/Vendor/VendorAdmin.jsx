@@ -1,34 +1,33 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Image, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import ListMenuItemsUser from '../../pages/MenuItem/ListMenuItemsUser';
+import { Link, withRouter } from 'react-router-dom';
+// import DeleteMenuVendor from '../MenuVendor/DeleteMenuVendor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Vendor extends React.Component {
+class VendorAdmin extends React.Component {
   render() {
-    const text = { paddingTop: '50px', fontSize: '20px' };
     return (
-      <Card fluid>
-        <Image size='medium' src={this.props.vendor.image}/>
-        <Card.Content>
-          <Card.Header>{this.props.vendor.name}</Card.Header>
-        </Card.Content>
-        <Card.Content extra>
-          <ListMenuItemsUser key={this.props.vendor.name} vendorDisplayed={this.props.vendor}/>
-        </Card.Content>
-        <Card.Content extra>
-          <p style={text}>{this.props.vendor.description}</p>
-        </Card.Content>
-      </Card>
+      <Table.Row>
+        <Table.Cell>{this.props.vendor.name}</Table.Cell>
+        <Table.Cell>
+          <Image size='small' src={this.props.vendor.image}/>
+          <p>{this.props.vendor.image.toString}</p>
+        </Table.Cell>
+        <Table.Cell>{this.props.vendor.location}</Table.Cell>
+        <Table.Cell>{this.props.vendor.owner}</Table.Cell>
+
+        <Table.Cell>{<Link to={`/admin/menuvendor-edit/${this.props.vendor._id}`}>Edit</Link>}</Table.Cell>
+        {/* <Table.Cell><DeleteMenuVendor key={this.props.vendor.name} vendor={this.props.vendor}/></Table.Cell> */}
+      </Table.Row>
     );
   }
 }
 
 // Require a document to be passed to this component.
-Vendor.propTypes = {
+VendorAdmin.propTypes = {
   vendor: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(Vendor);
+export default withRouter(VendorAdmin);
