@@ -19,13 +19,12 @@ class NavBar extends React.Component {
         <Menu.Item as={NavLink} activeClassName="active" exact to="/locations" key='locations'>Locations</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/listVenU" key='listVenU'>Vendors List</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="list" key='list'>Profile</Menu.Item>,
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/top-choices" key='topChoices'>Top Choices</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/userhome" key='userHome'>User Home</Menu.Item>,
       ]) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
         <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor/vendor-home" key='vendor'>Menu Items</Menu.Item>) : ''}
       {Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/adminhome" key='adminHome'>Admin Home</Menu.Item>,
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/adminhome" key='admin'>Admin Home</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/vendor-home" key='vendoradmin'>Menu Items</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/listallprofiles" key='admin'>All Profiles</Menu.Item>]) : ''
       }
