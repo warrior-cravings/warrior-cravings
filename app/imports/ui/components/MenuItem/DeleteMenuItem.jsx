@@ -4,29 +4,25 @@ import PropTypes from 'prop-types';
 import { MenuItems } from '../../../api/menuItem/MenuItem';
 
 class DeleteMenuItem extends Component {
-  state = { open: false }
-
-  open = () => this.setState({ open: true })
-
-  close = () => this.setState({ open: false })
 
   render() {
-    console.log(this.props.item);
+    const state = { open: false };
+    const open = () => this.setState({ open: true });
+    const close = () => this.setState({ open: false });
     const title = `Delete the ${this.props.item.name} item`;
     const deleteItem = () => {
-      console.log(title);
       MenuItems.collection.remove(this.props.item._id);
       this.close();
     };
     return (
       <div>
-        <Button onClick={this.open} icon='delete'></Button>
+        <Button onClick={open} icon='delete'></Button>
         <Confirm
-          open={this.state.open}
+          open={state.open}
           header={title}
           cancelButton='Never mind'
           confirmButton="Let's do it"
-          onCancel={this.close}
+          onCancel={close}
           onConfirm={deleteItem}
         />
       </div>

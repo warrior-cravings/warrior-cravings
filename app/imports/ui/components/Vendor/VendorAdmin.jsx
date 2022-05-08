@@ -12,7 +12,7 @@ class VendorAdmin extends React.Component {
         <Table.Cell>{this.props.vendor.name}</Table.Cell>
         <Table.Cell>
           <Image size='small' src={this.props.vendor.image}/>
-          <p>{this.props.vendor.image.toString}</p>
+          <p>{this.props.vendor.image.toString()}</p>
         </Table.Cell>
         <Table.Cell>{this.props.vendor.location}</Table.Cell>
         <Table.Cell>{this.props.vendor.owner}</Table.Cell>

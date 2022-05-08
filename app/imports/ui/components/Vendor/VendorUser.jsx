@@ -14,11 +14,14 @@ class Vendor extends React.Component {
         <Card.Content>
           <Card.Header>{this.props.vendor.name}</Card.Header>
         </Card.Content>
-        <Card.Content extra>
-          <ListMenuItemsUser key={this.props.vendor.name} vendorDisplayed={this.props.vendor}/>
-        </Card.Content>
+        <Card.Description>
+          <p>Location: {this.props.vendor.location}</p>
+        </Card.Description>
         <Card.Content extra>
           <p style={text}>{this.props.vendor.description}</p>
+        </Card.Content>
+        <Card.Content extra>
+          <ListMenuItemsUser key={this.props.vendor.name} vendorDisplayed={this.props.vendor}/>
         </Card.Content>
       </Card>
     );

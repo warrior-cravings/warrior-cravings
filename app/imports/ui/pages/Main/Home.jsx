@@ -2,9 +2,9 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import 'semantic-ui-css/semantic.css';
 import { Roles } from 'meteor/alanning:roles';
-import VendorHome from '../components/HomePage/VendorHome';
-import AdminHome from '../components/HomePage/AdminHome';
-import UserHome from '../components/HomePage/UserHome';
+import VendorHome from '../../components/HomePage/VendorHome';
+import AdminHome from '../../components/HomePage/AdminHome';
+import UserHome from '../../components/HomePage/UserHome';
 
 /** A simple static component to render some text for the landing page. */
 class Home extends React.Component {

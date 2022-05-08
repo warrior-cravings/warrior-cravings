@@ -4,8 +4,8 @@ import { Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { Vendors } from '../../api/vendor/Vendor';
-import { VendorCard } from '../components/VendorCard';
+import { Vendors } from '../../../api/vendor/Vendor';
+import VendorCard from '../../components/Vendor/VendorCard';
 
 /** Returns the Profile and associated Projects and Interests associated with the passed user name. */
 function getVendorData(name) {
@@ -27,9 +27,7 @@ class Hungry extends React.Component {
     const vendorData = getVendorData(name);
     return (
       <Container id="vendor-page">
-        <Card.Group>
-          <VendorCard vendor={vendorData}/>
-        </Card.Group>
+        <VendorCard vendor={vendorData}/>
       </Container>
     );
   }
