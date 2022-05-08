@@ -16,7 +16,7 @@ class UserHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/topchoices">
+            <Link to="/hungry">
               <Icon color='red' size="massive" name="star"/>
               <Header color='red' as='h1'>Top Choices</Header>
             </Link>
