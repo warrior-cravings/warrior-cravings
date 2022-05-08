@@ -16,13 +16,13 @@ class VendorHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/vendor/mymenu">
+            <Link to="/menuitem/menuitemsV">
               <Icon color='red' size="massive" name="star"/>
               <Header color='red' as='h1'>My Menu Items</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/myprofile">
+            <Link to="/myvendor">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>My Vendor Profile</Header>
             </Link>

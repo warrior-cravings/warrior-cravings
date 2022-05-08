@@ -24,6 +24,8 @@ import ListVendorsAdmin from '../pages/Lists/ListVendorsAdmin';
 import EditVendor from '../components/Vendor/EditVendor';
 import Locations from '../pages/Locations';
 import Home from '../pages/Home';
+import Hungry from '../pages/Hungry';
+import MyVendor from '../pages/MyVendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,7 +41,14 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/home" component={Home}/>
             <ProtectedRoute exact path="/locations" component={Locations}/>
+            <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
+            <VendorProtectedRoute path="/menuitem/menuitemsV" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
+            <AdminProtectedRoute path="/admin/menuitemsA" component={ListMenuItemsAdmin}/>
+            <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/myvendor" component={MyVendor}/>
             <ProtectedRoute path="/myprofile" component={ListProfiles}/>
+            <ProtectedRoute path="/hungry" component={Hungry}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
             <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
             <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>
