@@ -8,21 +8,21 @@ class VendorHome extends React.Component {
     const middlePadding = { paddingTop: '100px', paddingBottom: '100px' };
     return (
       <div style={middlePadding}>
-        <Grid id='landing-page' container centered stackable columns={3}>
+        <Grid id='landing-page' container centered stackable columns={2}>
           <Grid.Column textAlign='center'>
-            <Link to="/listVen">
+            <Link to="/listVenU">
               <Icon color='red' size="massive" name="utensils"/>
               <Header color='red' as='h1'>Other Vendors</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/addstuff">
+            <Link to="/menuitem/menuitemsV">
               <Icon color='red' size="massive" name="star"/>
-              <Header color='red' as='h1'>Top Choices</Header>
+              <Header color='red' as='h1'>My Menu Items</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/listvendors">
+            <Link to="/myvendor">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>My Vendor Profile</Header>
             </Link>

@@ -6,7 +6,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import Landing from '../pages/Landing';
+import Landing from '../pages/Main/Landing';
 import ListMenuItemsUser from '../pages/MenuItem/ListMenuItemsUser';
 import ListMenuItemsVendor from '../pages/MenuItem/ListMenuItemsVendor';
 import ListMenuItemsAdmin from '../pages/MenuItem/ListMenuItemsAdmin';
@@ -15,18 +15,17 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import ListProfilesAdmin from '../pages/ListProfilesAdmin';
-import EditProfile from '../pages/EditProfile';
-import AddProfile from '../pages/AddProfile';
-import ListVendors from '../pages/ListVendors';
-import ListProfiles from '../pages/ListProfiles';
-import ListVendorsUser from '../pages/ListVendorsUser';
-import EditVendor from '../pages/EditVendor';
-import AddVendor from '../pages/AddVendor';
-import AdminHome from '../pages/AdminHome';
-import UserHome from '../pages/UserHome';
-import VendorHome from '../pages/VendorHome';
-import Locations from '../pages/Locations';
+import ListProfilesAdmin from '../pages/Lists/ListProfilesAdmin';
+import EditProfile from '../components/Profile/EditProfile';
+import AddProfile from '../components/Profile/AddProfile';
+import ListProfiles from '../pages/Lists/ListProfiles';
+import ListVendorsUser from '../pages/Lists/ListVendorsUser';
+import ListVendorsAdmin from '../pages/Lists/ListVendorsAdmin';
+import EditVendor from '../components/Vendor/EditVendor';
+import Locations from '../pages/Main/Locations';
+import Home from '../pages/Main/Home';
+import Hungry from '../pages/Main/Hungry';
+import MyVendor from '../pages/MyVendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -37,27 +36,30 @@ class App extends React.Component {
           <NavBar/>
           <Switch>
             <Route exact path="/" component={Landing}/>
-            <Route exact path="/locations" component={Locations}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
+            <ProtectedRoute path="/home" component={Home}/>
+            <ProtectedRoute exact path="/locations" component={Locations}/>
             <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
-            <VendorProtectedRoute path="/vendor/vendor-home" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/menuitem/menuitemsV" component={ListMenuItemsVendor}/>
             <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
-            <AdminProtectedRoute path="/admin/vendor-home" component={ListMenuItemsAdmin}/>
-            <ProtectedRoute path="/listVen" component={ListVendors}/>
+            <AdminProtectedRoute path="/admin/menuitemsA" component={ListMenuItemsAdmin}/>
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
-            <ProtectedRoute path="/list" component={ListProfiles}/>
-            <VendorProtectedRoute path="/listVen" component={ListVendors}/>
+            <VendorProtectedRoute path="/myvendor" component={MyVendor}/>
+            <ProtectedRoute path="/myprofile" component={ListProfiles}/>
+            <ProtectedRoute path="/hungry" component={Hungry}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
-            <AdminProtectedRoute path="/admin" component={ListProfilesAdmin}/>
-            <ProtectedRoute path="/addPro" component={AddProfile}/>
-            <ProtectedRoute path="/addVen" component={AddVendor}/>
+            <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
+            <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>
+            <VendorProtectedRoute path="/vendor/vendor-home" component={ListMenuItemsVendor}/>
+            <AdminProtectedRoute path="/admin/listallprofiles" component={ListProfilesAdmin}/>
+            <AdminProtectedRoute path="/admin/listallvendors" component={ListVendorsAdmin}/>
+            <AdminProtectedRoute path="/admin/listallmenuitems" component={ListMenuItemsAdmin}/>
+            <AdminProtectedRoute path="/admin/addPro" component={AddProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
-            <VendorProtectedRoute path="/editVen/:_id" component={EditVendor}/>
-            <ProtectedRoute path="/userhome" component={UserHome}/>
-            <ProtectedRoute path="/vendor/vendorhome" component={VendorHome}/>
-            <AdminProtectedRoute path="/admin/adminhome" component={AdminHome}/>
+            <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
+            <VendorProtectedRoute path="/admin/menuvendor-edit/:_id" component={EditVendor}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
