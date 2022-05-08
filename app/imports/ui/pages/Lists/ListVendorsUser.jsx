@@ -18,7 +18,7 @@ class ListVendors extends React.Component {
     return (
       <Container>
         <Header as="h2" textAlign="center">Vendor</Header>
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={4}>
           {this.props.vendors.map((vendor, index) => (<VendorUser key={index} vendor={vendor}/>))}
         </Card.Group>
       </Container>
@@ -41,7 +41,6 @@ export default withTracker(() => {
   const ready = subscription.ready();
   // Get the Stuff documents
   const vendors = Vendors.collection.find({}).fetch();
-  console.log(Vendors);
   return {
     vendors,
     ready,

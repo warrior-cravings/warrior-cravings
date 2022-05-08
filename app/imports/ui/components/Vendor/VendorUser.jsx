@@ -2,26 +2,18 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import ListMenuItemsUser from '../../pages/MenuItem/ListMenuItemsUser';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Vendor extends React.Component {
   render() {
-    const text = { paddingTop: '50px', fontSize: '20px' };
     return (
-      <Card fluid>
+      <Card fluid href={`#/vendor/${this.props.vendor._id}`}>
         <Image size='medium' src={this.props.vendor.image}/>
         <Card.Content>
-          <Card.Header>{this.props.vendor.name}</Card.Header>
-        </Card.Content>
-        <Card.Description>
-          <p>Location: {this.props.vendor.location}</p>
-        </Card.Description>
-        <Card.Content extra>
-          <p style={text}>{this.props.vendor.description}</p>
-        </Card.Content>
-        <Card.Content extra>
-          <ListMenuItemsUser key={this.props.vendor.name} vendorDisplayed={this.props.vendor}/>
+          <Card.Header>
+            {this.props.vendor.name}
+          </Card.Header>
+          <Card.Meta><p>Location: {this.props.vendor.location}</p></Card.Meta>
         </Card.Content>
       </Card>
     );

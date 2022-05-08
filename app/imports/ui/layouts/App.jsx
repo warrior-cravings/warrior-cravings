@@ -26,6 +26,7 @@ import Locations from '../pages/Main/Locations';
 import Home from '../pages/Main/Home';
 import Hungry from '../pages/Main/Hungry';
 import MyVendor from '../pages/MyVendor';
+import Vendor from '../components/Vendor/Vendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -58,6 +59,7 @@ class App extends React.Component {
             <AdminProtectedRoute path="/admin/listallmenuitems" component={ListMenuItemsAdmin}/>
             <AdminProtectedRoute path="/admin/addPro" component={AddProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
+            <ProtectedRoute path="/vendor/:_id" component={Vendor}/>
             <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
             <VendorProtectedRoute path="/admin/menuvendor-edit/:_id" component={EditVendor}/>
             <Route component={NotFound}/>

@@ -1,17 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Card } from 'semantic-ui-react';
+import { _ } from 'meteor/underscore';
+import { Grid, Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { _ } from 'meteor/underscore';
 import { Vendors } from '../../../api/vendor/Vendor';
 import VendorCard from '../../components/Vendor/VendorCard';
-
-/** Returns the Profile and associated Projects and Interests associated with the passed user name. */
-function getVendorData(name) {
-  const data = Vendors.collection.findOne({ name });
-  return _.extend({ }, data);
-}
 
 /** Renders the Profile Collection as a set of Cards. */
 class Hungry extends React.Component {
@@ -23,11 +17,14 @@ class Hungry extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const name = _.sample(_.pluck(Vendors.collection.find().fetch(), 'name'));
-    const vendorData = getVendorData(name);
+    const vendorSample = _.sample((Vendors.collection.find().fetch()), 3);
     return (
-      <Container id="vendor-page">
-        <VendorCard vendor={vendorData}/>
+      <Container id="vendor-page" style={{ paddingTop: '40px' }}>
+        <Grid centered>
+          <Card.Group itemsPerRow={3}>
+            {vendorSample.map((vendor) => (<VendorCard key={vendor.name} vendor={vendor}/>))}
+          </Card.Group>
+        </Grid>
       </Container>
     );
   }

@@ -19,7 +19,6 @@ class ListMenuItemUser extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === this.props.vendorDisplayed.name);
-    console.log(vendorItems);
     return (
       <Container>
         <Table celled>
@@ -31,7 +30,6 @@ class ListMenuItemUser extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {/* to change to filter by which vendor account is being used. vendorItems <=> this.props.menuItems */}
             {vendorItems.map((menuItem) => <MenuItemUser key={menuItem._id} Item={menuItem} />)}
           </Table.Body>
         </Table>
