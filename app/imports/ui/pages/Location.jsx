@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
 
 /** A simple static component to render some text for the locations page. */
-class Locations extends React.Component {
+class Location extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -52,7 +52,7 @@ class Locations extends React.Component {
   }
 }
 
-Locations.propTypes = {
+Location.propTypes = {
   vendors: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -69,4 +69,4 @@ export default withTracker(() => {
     vendors,
     ready,
   };
-})(Locations);
+})(Location);

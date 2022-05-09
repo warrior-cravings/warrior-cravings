@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Header, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-/** A simple static component to render some text for the landing page. */
+/** A simple static component to render some text for the vendor home page. */
 class VendorHome extends React.Component {
   render() {
     const middlePadding = { paddingTop: '100px', paddingBottom: '100px' };
@@ -16,13 +16,13 @@ class VendorHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/vendor/mymenu">
+            <Link to="/menuitem/menuitemsV">
               <Icon color='red' size="massive" name="star"/>
               <Header color='red' as='h1'>My Menu Items</Header>
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/listvendors">
+            <Link to="/myvendor">
               <Icon color='red' size="massive" name="user circle"/>
               <Header color='red' as='h1'>My Vendor Profile</Header>
             </Link>

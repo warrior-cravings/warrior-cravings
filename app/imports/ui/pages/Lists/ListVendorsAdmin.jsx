@@ -7,7 +7,7 @@ import { Vendors } from '../../../api/vendor/Vendor';
 import VendorAdmin from '../../components/Vendor/VendorAdmin';
 import AddVendor from '../../components/Vendor/AddVendor';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Vendor documents. */
 class ListVendors extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -42,7 +42,7 @@ class ListVendors extends React.Component {
   }
 }
 
-// Require an array of Stuff documents in the props.
+// Require an array of Vendor documents in the props.
 ListVendors.propTypes = {
   vendors: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -50,11 +50,11 @@ ListVendors.propTypes = {
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Vendor documents.
   const subscription = Meteor.subscribe(Vendors.vendorPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Stuff documents
+  // Get the Vendor documents
   const vendors = Vendors.collection.find({}).fetch();
   console.log(Vendors);
   return {

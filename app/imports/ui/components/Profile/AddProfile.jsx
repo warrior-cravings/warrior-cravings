@@ -6,7 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Profiles } from '../../api/profile/Profiles';
+import { Profiles } from '../../../api/profile/Profiles';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -31,7 +31,7 @@ class AddProfile extends React.Component {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Profile added successfully', 'success');
           formRef.reset();
           // eslint-disable-next-line no-undef
           window.location.replace('https://warrior-cravings.xyz/#/list');

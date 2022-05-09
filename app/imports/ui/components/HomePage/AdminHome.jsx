@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Header, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-/** A simple static component to render some text for the landing page. */
+/** A simple static component to render some text for the admin home page. */
 class AdminHome extends React.Component {
   render() {
     const middlePadding = { paddingTop: '100px', paddingBottom: '100px' };
@@ -22,7 +22,7 @@ class AdminHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/admin/menuitems">
+            <Link to="/admin/listallmenuitems">
               <Icon color='red' size="massive" name="list layout"/>
               <Header color='red' as='h1'>All Menu Items</Header>
             </Link>

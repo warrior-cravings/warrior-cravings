@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-/** Renders a single row in the List Menu (Admin) table. See pages/ListMenuAdmin.jsx. */
+/** Renders a single row in the List Menu Items table. See pages/ListMenuItemsUser.jsx. */
 class MenuItemVendor extends React.Component {
   render() {
     return (

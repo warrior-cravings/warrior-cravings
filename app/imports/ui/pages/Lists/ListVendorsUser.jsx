@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Vendors } from '../../../api/vendor/Vendor';
 import VendorUser from '../../components/Vendor/VendorUser';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Vendor documents. */
 class ListVendors extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -18,7 +18,7 @@ class ListVendors extends React.Component {
     return (
       <Container>
         <Header as="h2" textAlign="center">Vendor</Header>
-        <Card.Group itemsPerRow={1}>
+        <Card.Group itemsPerRow={4}>
           {this.props.vendors.map((vendor, index) => (<VendorUser key={index} vendor={vendor}/>))}
         </Card.Group>
       </Container>
@@ -41,7 +41,6 @@ export default withTracker(() => {
   const ready = subscription.ready();
   // Get the Stuff documents
   const vendors = Vendors.collection.find({}).fetch();
-  console.log(Vendors);
   return {
     vendors,
     ready,

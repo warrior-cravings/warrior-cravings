@@ -23,10 +23,8 @@ class CreateMenuItem extends React.Component {
       const email = Meteor.user().username;
       const vendor1 = Vendors.collection.find({ owner: email }).fetch();
       const vendorname = vendor1[0].name;
-      console.log(email, vendor1);
       let insertError;
       const { name, mealType, ingredients } = data;
-      console.log(vendorname, name, mealType, ingredients);
       MenuItems.collection.insert({ name, vendor: vendorname, mealType, ingredients },
         (error) => { insertError = error; });
       if (insertError) {

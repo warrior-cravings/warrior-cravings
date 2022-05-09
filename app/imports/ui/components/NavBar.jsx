@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Item } from 'semantic-ui-react';
+import { Menu, Dropdown, Item, Icon } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -19,21 +19,25 @@ class NavBar extends React.Component {
           </Item.Image>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/locations" key='locations'>Locations</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/listVenU" key='listVenU'>Vendors List</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/top-choices" key='topChoices'>Top Choices</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/feelinghungry" key='feelinghungry'>Feeling Hungry</Menu.Item>,
         ]) :
           <Item.Image id={'nav-logo'} size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
           </Item.Image>
         }
-        {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor/vendor-home" key='vendor'>Menu Items</Menu.Item>) : ''}
+
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
+          <Menu.Item position='right' key='adminicon'><Icon size='large' name='detective'></Icon>Admin</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/listallprofiles" key='adminUsers'>All Users</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/listallvendors" key='adminVendors'>All Vendors</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/admin/listallmenuitems" key='adminMenu'>All Menu Items</Menu.Item>,
         ]) : ''}
-        {(this.props.currentUser) ? ([
+        {((this.props.currentUser) && !(Roles.userIsInRole(Meteor.userId(), 'admin'))) ? ([
           <Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/myprofile" key='myprofile'>My Profile</Menu.Item>,
         ]) : ''}
+        {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/menuitem/menuitemsV" key='vendor'> My Menu Items</Menu.Item>)
+          : ''
+        }
         {
           <Menu.Item>
             {this.props.currentUser === '' ? (<Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>

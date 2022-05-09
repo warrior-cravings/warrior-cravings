@@ -1,13 +1,12 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
-/** Renders a single row in the List Vendor table. See pages/ListVendorsUser.jsx. */
-class Vendor extends React.Component {
+/** Component for layout out a Vendor Profile Card. */
+class VendorCard extends React.Component {
   render() {
     return (
-      <Card fluid href={`#/vendor/${this.props.vendor._id}`}>
+      <Card href={`#/vendor/${this.props.vendor._id}`}>
         <Image size='medium' src={this.props.vendor.image}/>
         <Card.Content>
           <Card.Header>
@@ -20,10 +19,8 @@ class Vendor extends React.Component {
   }
 }
 
-// Require a document to be passed to this component.
-Vendor.propTypes = {
+VendorCard.propTypes = {
   vendor: PropTypes.object.isRequired,
 };
 
-// Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(Vendor);
+export default VendorCard;
