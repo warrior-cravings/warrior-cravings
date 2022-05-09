@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           </Item.Image>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/locations" key='locations'>Locations</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/listVenU" key='listVenU'>Vendors List</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/hungry" key='hungry'>Feeling Hungry</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/feelinghungry" key='feelinghungry'>Feeling Hungry</Menu.Item>,
         ]) :
           <Item.Image id={'nav-logo'} size={'tiny'} src="/images/Warrior_Cravings_Logo_red-white.png" as={NavLink} activeClassName='' exact to='/'>
           </Item.Image>

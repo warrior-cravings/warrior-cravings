@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Vendors } from '../../../api/vendor/Vendor';
 import VendorUser from '../../components/Vendor/VendorUser';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Vendor documents. */
 class ListVendors extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {

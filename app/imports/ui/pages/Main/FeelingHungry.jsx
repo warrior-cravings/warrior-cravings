@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import { Vendors } from '../../../api/vendor/Vendor';
 import VendorCard from '../../components/Vendor/VendorCard';
 
-/** Renders the Profile Collection as a set of Cards. */
-class Hungry extends React.Component {
+/** Renders the Vendor Collection as a set of Cards. */
+class FeelingHungry extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -30,7 +30,7 @@ class Hungry extends React.Component {
   }
 }
 
-Hungry.propTypes = {
+FeelingHungry.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
@@ -41,4 +41,4 @@ export default withTracker(() => {
   return {
     ready: sub1.ready(),
   };
-})(Hungry);
+})(FeelingHungry);

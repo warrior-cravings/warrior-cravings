@@ -5,7 +5,7 @@ import { Grid, Image, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../../api/vendor/Vendor';
 import ListMenuItemsUser from '../../pages/MenuItem/ListMenuItemsUser';
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Vendor table. See pages/ListVendors.jsx. */
 class Vendor extends React.Component {
   render() {
     const text = { paddingTop: '50px', fontSize: '20px' };

@@ -11,10 +11,10 @@ import ListMenuItemsUser from '../pages/MenuItem/ListMenuItemsUser';
 import ListMenuItemsVendor from '../pages/MenuItem/ListMenuItemsVendor';
 import ListMenuItemsAdmin from '../pages/MenuItem/ListMenuItemsAdmin';
 import EditMenuItem from '../components/MenuItem/EditMenuItem';
-import NotFound from '../pages/NotFound';
-import Signin from '../pages/Signin';
-import Signup from '../pages/Signup';
-import Signout from '../pages/Signout';
+import NotFound from '../pages/Main/NotFound';
+import Signin from '../pages/Main/Signin';
+import Signup from '../pages/Main/Signup';
+import Signout from '../pages/Main/Signout';
 import ListProfilesAdmin from '../pages/Lists/ListProfilesAdmin';
 import EditProfile from '../components/Profile/EditProfile';
 import AddProfile from '../components/Profile/AddProfile';
@@ -24,9 +24,9 @@ import ListVendorsAdmin from '../pages/Lists/ListVendorsAdmin';
 import EditVendor from '../components/Vendor/EditVendor';
 import Locations from '../pages/Main/Locations';
 import Home from '../pages/Main/Home';
-import Hungry from '../pages/Main/Hungry';
-import MyVendor from '../pages/MyVendor';
+import MyVendor from '../components/Vendor/MyVendor';
 import Vendor from '../components/Vendor/Vendor';
+import FeelingHungry from '../pages/Main/FeelingHungry';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -49,7 +49,7 @@ class App extends React.Component {
             <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
             <VendorProtectedRoute path="/myvendor" component={MyVendor}/>
             <ProtectedRoute path="/myprofile" component={ListProfiles}/>
-            <ProtectedRoute path="/hungry" component={Hungry}/>
+            <ProtectedRoute path="/feelinghungry" component={FeelingHungry}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
             <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
             <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>

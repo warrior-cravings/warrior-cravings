@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Header, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-/** A simple static component to render some text for the landing page. */
+/** A simple static component to render some text for the admin home page. */
 class AdminHome extends React.Component {
   render() {
     const middlePadding = { paddingTop: '100px', paddingBottom: '100px' };
