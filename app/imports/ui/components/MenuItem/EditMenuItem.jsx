@@ -20,7 +20,7 @@ class EditMenuItem extends React.Component {
     const { name, vendor, mealType, ingredients, _id } = data;
     MenuItems.collection.update(_id, { $set: { name, vendor, mealType, ingredients } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal('Success', 'Menu Item updated successfully', 'success')));
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.

@@ -6,7 +6,7 @@ import VendorHome from '../../components/HomePage/VendorHome';
 import AdminHome from '../../components/HomePage/AdminHome';
 import UserHome from '../../components/HomePage/UserHome';
 
-/** A simple static component to render some text for the landing page. */
+/** A simple static component to render some text for the home page. */
 class Home extends React.Component {
   render() {
     const isUser = (!(Roles.userIsInRole(Meteor.userId(), 'admin')) && !(Roles.userIsInRole(Meteor.userId(), 'vendor')));

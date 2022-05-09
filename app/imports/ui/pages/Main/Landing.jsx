@@ -4,8 +4,8 @@ import { Grid, Header, Segment } from 'semantic-ui-react';
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
-    const accentStyle = { color: 'white', fontFamily: 'Arial', fontWeight: '700' };
-    const gridStyle = { paddingBottom: '5em', paddingTop: '5em', paddingLeft: '5em', paddingRight: '5em' };
+    const accentStyle = { color: 'white', fontFamily: 'Arial', fontWeight: '700', paddingBottom: '1em' };
+    const gridStyle = { paddingBottom: '5em', paddingLeft: '5em', paddingRight: '5em', paddingTop: '5em' };
     return (
 
       <div id='landing-page-image1'>
@@ -16,8 +16,8 @@ class Landing extends React.Component {
               The University of Hawaiʻi at Mānoa campus offers a large selection of food places for students to enjoy and eat at.
               Warrior Cravings allows students to see all the unique food choices available on campus while providing a platform for vendors to showcase their menu. </p>
           </div>
-          <div className='accent-block'>
-            <Header as='h2' style={accentStyle} inverted>Start off by signing up and making an account.</Header>
+          <div>
+            <Header as='h1' style={accentStyle} inverted>Start off by signing up and making an account.</Header>
           </div>
           <Segment style={{ padding: '0em' }} vertical>
             <Grid celled='internally' columns='equal' stackable>

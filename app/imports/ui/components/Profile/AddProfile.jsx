@@ -31,7 +31,7 @@ class AddProfile extends React.Component {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Profile added successfully', 'success');
           formRef.reset();
           // eslint-disable-next-line no-undef
           window.location.replace('https://warrior-cravings.xyz/#/list');

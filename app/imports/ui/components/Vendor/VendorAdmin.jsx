@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 // import DeleteMenuVendor from '../MenuVendor/DeleteMenuVendor';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Vendor table. See pages/ListVendorsAdmin.jsx. */
 class VendorAdmin extends React.Component {
   render() {
     return (

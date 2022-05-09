@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import DeleteMenuItem from './DeleteMenuItem';
 
-/** Renders a single row in the List Menu (Admin) table. See pages/ListMenuAdmin.jsx. */
+/** Renders a single row in the List Menu Items table. See pages/ListMenuItemsVendor.jsx. */
 class MenuItemVendor extends React.Component {
   render() {
     return (

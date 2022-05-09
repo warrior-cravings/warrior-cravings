@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-/** Component for layout out a Profile Card. */
+/** Component for layout out a Vendor Profile Card. */
 class VendorCard extends React.Component {
   render() {
     return (

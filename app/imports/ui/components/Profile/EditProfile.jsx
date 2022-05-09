@@ -18,7 +18,7 @@ class EditProfile extends React.Component {
     const { firstName, lastName, image, address, description, _id } = data;
     Profiles.collection.update(_id, { $set: { firstName, lastName, image, address, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal('Success', 'Profile updated successfully', 'success')));
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.

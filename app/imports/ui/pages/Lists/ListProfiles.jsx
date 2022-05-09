@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Profiles } from '../../../api/profile/Profiles';
 import Profile from '../../components/Profile/Profile';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Profile documents. */
 class ListProfiles extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -36,7 +36,7 @@ class ListProfiles extends React.Component {
   }
 }
 
-// Require an array of Stuff documents in the props.
+// Require an array of Profile documents in the props.
 ListProfiles.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -44,11 +44,11 @@ ListProfiles.propTypes = {
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Profile documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Stuff documents
+  // Get the Profile documents
   const profiles = Profiles.collection.find({}).fetch();
   return {
     profiles,
