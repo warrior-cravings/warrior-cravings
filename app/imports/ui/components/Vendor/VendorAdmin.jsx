@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-// import DeleteMenuVendor from '../MenuVendor/DeleteMenuVendor';
+import DeleteVendor from '../Vendor/DeleteVendor';
 
 /** Renders a single row in the List Vendor table. See pages/ListVendorsAdmin.jsx. */
 class VendorAdmin extends React.Component {
@@ -18,7 +18,7 @@ class VendorAdmin extends React.Component {
         <Table.Cell>{this.props.vendor.owner}</Table.Cell>
 
         <Table.Cell>{<Link to={`/admin/menuvendor-edit/${this.props.vendor._id}`}>Edit</Link>}</Table.Cell>
-        {/* <Table.Cell><DeleteMenuVendor key={this.props.vendor.name} vendor={this.props.vendor}/></Table.Cell> */}
+        <Table.Cell><DeleteVendor key={this.props.vendor.name} vendor={this.props.vendor}/></Table.Cell>
       </Table.Row>
     );
   }

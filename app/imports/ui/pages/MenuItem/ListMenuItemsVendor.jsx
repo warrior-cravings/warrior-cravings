@@ -22,13 +22,13 @@ class ListMenuItemVendor extends React.Component {
   renderPage() {
     const email = Meteor.user().username;
     const vendor = Vendors.collection.findOne({ owner: email });
-    console.log(Roles.userIsInRole(Meteor.user().userId, 'vendor'));
     // console.log(email, vendor.name);
     const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === vendor.name);
     console.log(vendorItems);
     return (
       <Container>
         <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
+        <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -45,7 +45,6 @@ class ListMenuItemVendor extends React.Component {
             {vendorItems.map((menuItem) => <MenuItemVendor key={menuItem._id} Item={menuItem} />)}
           </Table.Body>
         </Table>
-        <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
       </Container>
     );
   }

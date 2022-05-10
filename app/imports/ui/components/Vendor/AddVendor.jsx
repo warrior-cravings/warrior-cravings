@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Segment, Header, Button, Modal } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Vendors } from '../../../api/vendor/Vendor';
@@ -10,6 +9,7 @@ import { Vendors } from '../../../api/vendor/Vendor';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
+  email: String,
   image: String,
   description: String,
   location: String,
@@ -25,8 +25,8 @@ class AddVendor extends React.Component {
     const [open, setOpen] = React.useState(false);
     let fRef = null;
     const submit = (data, formRef) => {
-      const { _id, name, image, location, description } = data;
-      const owner = Meteor.user().username;
+      const { _id, name, image, location, description, email } = data;
+      const owner = email;
       Vendors.collection.insert({ _id, name, image, location, owner, description },
         (error) => {
           if (error) {
@@ -52,6 +52,7 @@ class AddVendor extends React.Component {
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                 <Segment>
                   <TextField name='name'/>
+                  <TextField name='email'/>
                   <TextField name='location'/>
                   <TextField name='image'/>
                   <LongTextField name='description'/>

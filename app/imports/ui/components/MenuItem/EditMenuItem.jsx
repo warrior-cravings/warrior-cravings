@@ -70,7 +70,6 @@ export default withTracker(({ match }) => {
   const ready = subscription.ready();
   // Get the document
   const doc = MenuItems.collection.findOne(documentId);
-  console.log(doc, documentId, match);
   return {
     doc,
     ready,

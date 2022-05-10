@@ -13,7 +13,7 @@ class Vendor extends React.Component {
           <Card.Header>
             {this.props.vendor.name}
           </Card.Header>
-          <Card.Meta><p>Location: {this.props.vendor.location}</p></Card.Meta>
+          <Card.Meta>Location: {this.props.vendor.location}</Card.Meta>
         </Card.Content>
       </Card>
     );

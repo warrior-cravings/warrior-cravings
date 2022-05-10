@@ -33,7 +33,7 @@ class ListProfilesAdmin extends React.Component {
               <Table.HeaderCell>Image</Table.HeaderCell>
               <Table.HeaderCell>Address</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell>Email</Table.HeaderCell>
+              <Table.HeaderCell>Owner</Table.HeaderCell>
               <Table.HeaderCell>Edit Profile</Table.HeaderCell>
               <Table.HeaderCell>Delete Profile</Table.HeaderCell>
             </Table.Row>

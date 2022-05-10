@@ -56,7 +56,6 @@ export default withTracker(() => {
   const ready = subscription.ready();
   // Get the Vendor documents
   const vendors = Vendors.collection.find({}).fetch();
-  console.log(Vendors);
   return {
     vendors,
     ready,

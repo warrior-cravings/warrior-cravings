@@ -1,5 +1,4 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
 import { Grid, Segment, Header, Form, Modal, Button } from 'semantic-ui-react';
 import { AutoForm, TextField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
@@ -11,12 +10,12 @@ import { Vendors } from '../../../api/vendor/Vendor';
 
 const formSchema = new SimpleSchema({
   name: { label: 'Name', type: String },
+  email: { label: 'Email', type: String },
   mealType: {
     label: 'Item Type',
     type: Array,
   },
   'mealType.$': { type: String, allowedValues: itemType.itemType },
-  // image: { label: 'URL', type: String },
   ingredients: {
     label: 'Ingredients',
     type: String,
@@ -33,11 +32,16 @@ class CreateMenuItem extends React.Component {
     const [open, setOpen] = React.useState(false);
     let fRef = null;
     const submit = (data, formRef) => {
-      const email = Meteor.user().username;
+      const { name, mealType, ingredients, email } = data;
+      console.log(email);
       const vendor1 = Vendors.collection.find({ owner: email }).fetch();
+      if (vendor1 === undefined) {
+        swal('Error', 'Vendor does not exist', 'error');
+      }
+      console.log(vendor1);
       const vendorname = vendor1[0].name;
+      console.log(vendorname);
       let insertError;
-      const { name, mealType, ingredients } = data;
       MenuItems.collection.insert({ name, vendor: vendorname, mealType, ingredients },
         (error) => { insertError = error; });
       if (insertError) {
@@ -64,6 +68,7 @@ class CreateMenuItem extends React.Component {
                 <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                   <Form.Group widths={'equal'}>
                     <TextField name='name' showInlineError={true} placeholder={'Item Name'}/>
+                    <TextField name='email' showInlineError={true} placeholder={'Vendor email'}/>
                   </Form.Group>
                   <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType'}/>
                   <TextField name='ingredients' showInlineError={true} placeholder={'Type Ingredients in comma separated list'}/>
