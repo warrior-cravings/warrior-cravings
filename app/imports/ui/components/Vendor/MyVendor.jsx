@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Image, Loader } from 'semantic-ui-react';
+import { Container, Grid, Header, Image, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Vendors } from '../../../api/vendor/Vendor';
 import ListMenuItemsUser from '../../pages/MenuItem/ListMenuItemsUser';
 
@@ -16,12 +16,11 @@ class MyVendor extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
-    console.log(this.props.vendor);
     const text = { paddingTop: '50px', fontSize: '20px' };
     return (
       <Container>
         <Header as="h2" textAlign="center">My Vendor Profile</Header>
-        {<Link to={`/admin/menuvendor-edit/${this.props.vendor._id}`}>Edit</Link>}
+        <Button as={NavLink} activeClassName="active" exact to={`/admin/menuvendor-edit/${this.props.vendor._id}`} key='editvendor'>Edit My Vendor Profile</Button>
         <Grid container style={{ paddingTop: '2em' }}>
           <Image size='medium' src={this.props.vendor.image}/>
           <div>
