@@ -8,7 +8,7 @@ class Profile extends React.Component {
   render() {
     const text = { paddingTop: '50px', fontSize: '20px' };
     return (
-      <Grid columns={2}>
+      <Grid id="myprofile" columns={2}>
         <Grid.Column>
           <Card>
             <Image src={this.props.profile.image} wrapped ui={false} />
@@ -16,7 +16,7 @@ class Profile extends React.Component {
               <Card.Header>{this.props.profile.firstName} {this.props.profile.lastName}</Card.Header>
             </Card.Content>
             <Card.Content extra>
-              <Link to={`/edit/${this.props.profile._id}`}>Edit</Link>
+              <Link id="editProfileButton" to={`/edit/${this.props.profile._id}`}>Edit</Link>
             </Card.Content>
           </Card>
         </Grid.Column>

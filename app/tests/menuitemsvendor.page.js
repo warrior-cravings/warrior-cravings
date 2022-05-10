@@ -10,6 +10,10 @@ class MenuItemsVendorPage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async gotoAddMenuItemPage(testController) {
+    await testController.click('#addMenuItemButton');
+  }
 }
 
 export const menuItemsVendorPage = new MenuItemsVendorPage();

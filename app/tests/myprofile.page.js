@@ -10,6 +10,10 @@ class MyProfilePage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async gotoEditProfilePage(testController) {
+    await testController.click('#editProfileButton');
+  }
 }
 
 export const myProfilePage = new MyProfilePage();

@@ -48,11 +48,11 @@ class CreateMenuItem extends React.Component {
       }
     };
     return (
-      <Modal
+      <Modal id="addmenuitem"
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>Add Menu Item</Button>}
+        trigger={<Button id="addMenuItemButton">Add Menu Item</Button>}
       >
         <Modal.Header>Add Menu Item</Modal.Header>
         <Modal.Content>
@@ -62,10 +62,10 @@ class CreateMenuItem extends React.Component {
               <Segment>
                 <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                   <Form.Group widths={'equal'}>
-                    <TextField name='name' showInlineError={true} placeholder={'Item Name'}/>
+                    <TextField id="additem-name" name='name' showInlineError={true} placeholder={'Item Name'}/>
                   </Form.Group>
-                  <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType'}/>
-                  <TextField name='ingredients' showInlineError={true} placeholder={'Type Ingredients in comma separated list'}/>
+                  <MultiSelectField id="additem-mealtype" name='mealType' showInlineError={true} placeholder={'Select mealType'}/>
+                  <TextField id="additem-ingredients" name='ingredients' showInlineError={true} placeholder={'Type Ingredients in comma separated list'}/>
                   <SubmitField value='Submit'/>
                 </AutoForm>
               </Segment>

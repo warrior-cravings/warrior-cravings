@@ -12,7 +12,6 @@ class EditVendorPage {
   }
 
   async editVendor(testController, name, location, image, description) {
-    await this.isDisplayed(testController);
     await testController.typeText('#editvendor-name', name);
     await testController.typeText('#editvendor-location', location);
     await testController.typeText('#editvendor-image', image);
