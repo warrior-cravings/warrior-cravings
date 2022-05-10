@@ -3,7 +3,8 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 export const itemValues = {
-  itemType: ['Dessert', 'Poultry', 'Beef', 'Pork', 'Fish', 'Seafood', 'Sandwich', 'Burgers', 'Salad', 'Drink', 'Healthy', 'Vegan'],
+  itemType: ['ToGo', 'Dessert', 'Poultry', 'Beef', 'Pork', 'Fish', 'Seafood', 'Sandwich', 'Burgers', 'Pizza', 'Salad', 'Drink', 'Sushi',
+    'Healthy', 'Vegan', 'Noodle', 'Smoothie', 'Ramen', 'Soup', 'Chicken', 'Korean', 'Mexican', 'Japanese', 'Breakfast', 'Vegan', 'Vegetarian'],
 };
 
 class MenuItemsCollection {
