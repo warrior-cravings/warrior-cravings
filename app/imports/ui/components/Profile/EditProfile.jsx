@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment, Button } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -66,12 +66,15 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
+  const subscription2 = Meteor.subscribe(Profiles.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const ready2 = subscription2.ready();
   // Get the document
   const doc = Profiles.collection.findOne(documentId);
   return {
     doc,
     ready,
+    ready2,
   };
 })(EditProfile);
