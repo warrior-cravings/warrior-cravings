@@ -7,7 +7,7 @@ class UserHome extends React.Component {
   render() {
     const middlePadding = { paddingTop: '100px', paddingBottom: '100px' };
     return (
-      <div style={middlePadding}>
+      <div id='userhome' style={middlePadding}>
         <Grid id='landing-page' container centered stackable columns={3}>
           <Grid.Column textAlign='center'>
             <Link to="/listVenU">

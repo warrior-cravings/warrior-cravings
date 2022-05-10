@@ -21,7 +21,7 @@ class ListMenuItemVendor extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
+        <Header id="allMenuItems" as="h2" textAlign="center">List Menu Items (Vendor)</Header>
         <CreateMenuItemAdmin key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
         <Table celled>
           <Table.Header>

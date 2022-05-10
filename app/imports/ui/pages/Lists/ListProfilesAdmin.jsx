@@ -18,13 +18,13 @@ class ListProfilesAdmin extends React.Component {
     if (this.props.profiles.length === 0) {
       return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>No Profiles</Header>
+          <Header id="allUsers" as="h2" textAlign="center" inverted>No Profiles</Header>
         </Container>
       );
     }
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Profiles</Header>
+        <Header id="allUsers" as="h2" textAlign="center">List Profiles</Header>
         <Table celled>
           <Table.Header>
             <Table.Row>
