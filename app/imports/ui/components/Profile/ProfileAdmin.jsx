@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import DeleteProfile from './DeleteProfile';
 
 /** Renders a single row in the List Profile table. See pages/ListProfilesAdmin.jsx. */
 class AdminProfile extends React.Component {
@@ -19,7 +20,8 @@ class AdminProfile extends React.Component {
         <Table.Cell>{this.props.profile.owner}</Table.Cell>
 
         <Table.Cell>{<Link to={`/edit/${this.props.profile._id}`}>Edit</Link>}</Table.Cell>
-        {/* <Table.Cell><DeleteMenuprofile key={this.props.profile.name} profile={this.props.profile}/></Table.Cell> */}
+        <Table.Cell><DeleteProfile key={this.props.profile.name} profile={this.props.profile}/></Table.Cell>
+
       </Table.Row>
     );
   }

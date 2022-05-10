@@ -5,10 +5,10 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Profiles } from '../../../api/profile/Profiles';
-import Profile from '../../components/Profile/Profile';
+import Profile from './Profile';
 
 /** Renders a table containing all of the Profile documents. */
-class ListProfiles extends React.Component {
+class MyProfile extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -37,7 +37,7 @@ class ListProfiles extends React.Component {
 }
 
 // Require an array of Profile documents in the props.
-ListProfiles.propTypes = {
+MyProfile.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -54,4 +54,4 @@ export default withTracker(() => {
     profiles,
     ready,
   };
-})(ListProfiles);
+})(MyProfile);

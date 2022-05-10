@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import swal from 'sweetalert';
 import { Button, Confirm } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Vendors } from '../../../api/vendor/Vendor';
+import { Profiles } from '../../../api/profile/Profiles';
 
 class DeleteMenuItem extends Component {
   state = { open: false }
@@ -12,10 +12,10 @@ class DeleteMenuItem extends Component {
   close = () => this.setState({ open: false })
 
   render() {
-    const title = `Delete the ${this.props.vendor.name} vendor`;
-    const deleteVendor = () => {
-      Vendors.collection.remove(this.props.vendor._id);
-      swal('Vendor Deleted!', "Don't forget to go to menu list to delete the Items!", 'success');
+    const title = `Delete the ${this.props.profile.name} vendor`;
+    const deleteProfile = () => {
+      Profiles.collection.remove(this.props.profile._id);
+      swal('Profile Deleted!', "Make Sure You don't regret!", 'success');
       this.close();
     };
     return (
@@ -27,13 +27,13 @@ class DeleteMenuItem extends Component {
           cancelButton='Never mind'
           confirmButton="Let's do it"
           onCancel={this.close}
-          onConfirm={deleteVendor}
+          onConfirm={deleteProfile}
         />
       </div>
     );
   }
 }
 DeleteMenuItem.propTypes = {
-  vendor: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 export default DeleteMenuItem;

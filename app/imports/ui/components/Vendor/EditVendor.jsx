@@ -1,8 +1,9 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Button } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
+import { NavLink } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -32,16 +33,17 @@ class EditVendor extends React.Component {
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Vendor Profile</Header>
-          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
-            <Segment>
+          <Segment>
+            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <TextField name='name'/>
               <TextField name='location'/>
               <TextField name='image'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
-            </Segment>
-          </AutoForm>
+            </AutoForm>
+          </Segment>
+          <Button as={NavLink} activeClassName="active" exact to="/listVenU">Return to Vendor List</Button>
         </Grid.Column>
       </Grid>
     );

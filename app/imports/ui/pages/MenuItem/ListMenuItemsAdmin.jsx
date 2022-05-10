@@ -7,6 +7,7 @@ import { MenuItems } from '../../../api/menuItem/MenuItem';
 import MenuItemVendor from '../../components/MenuItem/MenuItemVendor';
 // import CreateMenuItem from '../../components/MenuItem/CreateMenuItem';
 import { Vendors } from '../../../api/vendor/Vendor';
+import CreateMenuItemAdmin from '../../components/MenuItem/CreateMenuItemAdmin';
 
 /** Renders a table containing all of the Menu Item documents. */
 class ListMenuItemVendor extends React.Component {
@@ -21,6 +22,7 @@ class ListMenuItemVendor extends React.Component {
     return (
       <Container>
         <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
+        <CreateMenuItemAdmin key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -36,8 +38,6 @@ class ListMenuItemVendor extends React.Component {
             {this.props.menuItems.map((menuItem) => <MenuItemVendor key={menuItem._id} Item={menuItem} />)}
           </Table.Body>
         </Table>
-        {/* Admin wouldn't need to be able to create a menu item, only edit it */}
-        {/* <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/> */}
       </Container>
     );
   }

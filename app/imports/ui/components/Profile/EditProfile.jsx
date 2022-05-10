@@ -1,11 +1,12 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Button } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import { NavLink } from 'react-router-dom';
 import { Profiles } from '../../../api/profile/Profiles';
 
 const bridge = new SimpleSchema2Bridge(Profiles.schema);
@@ -15,7 +16,8 @@ class EditProfile extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, image, address, description, _id } = data;
+    const { firstName, lastName, image, address, description, _id, owner } = data;
+    console.log(owner);
     Profiles.collection.update(_id, { $set: { firstName, lastName, image, address, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Profile updated successfully', 'success')));
@@ -38,11 +40,12 @@ class EditProfile extends React.Component {
               <TextField name='lastName'/>
               <TextField name='address'/>
               <TextField name='image'/>
+              <TextField name='owner'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
-              <HiddenField name='owner' />
               <ErrorsField/>
             </Segment>
+            <Button as={NavLink} activeClassName="active" exact to="/home">Return to Home</Button>
           </AutoForm>
         </Grid.Column>
       </Grid>
