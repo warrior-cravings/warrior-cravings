@@ -25,9 +25,9 @@ class Location extends React.Component {
     locations.map((location) => groupByLocation[location]);
     console.log(locations);
     return (
-      <Container>
-        <Grid columns={2} divided>
-          <Grid.Column width={12}>
+      <div style={{ paddingLeft: '100px', paddingRight: '100px', paddingTop: '30px' }}>
+        <Grid columns={3} divided>
+          <Grid.Column width={7}>
             <Header as='h2'>Map Key</Header>
             <List as='ol'>
               <List.Item><h4 className="ui yellow header">Rotating Truck</h4></List.Item>
@@ -36,6 +36,8 @@ class Location extends React.Component {
               <List.Item><h4 className="ui green header">Nearby Campus</h4></List.Item>
             </List>
             <Image src='/images/vendor_map3.jpg' alt='Map of vendor'></Image>
+          </Grid.Column>
+          <Grid.Column width={5}>
             <Header as='h2'>Off Campus</Header>
             <Grid.Row>
               <iframe
@@ -85,13 +87,14 @@ class Location extends React.Component {
                     {
                       _.map(_.values(location), (vendor) => (<List.Item as='li'><Link key={vendor._id} to={`/vendor/${vendor._id}`}>{vendor.name}</Link></List.Item>))
                     }
+                    <div className="ui hidden divider"></div>
                   </List>
                 </Container>
               ))
             }
           </Grid.Column>
         </Grid>
-      </Container>
+      </div>
     );
   }
 }
