@@ -59,14 +59,6 @@ test('Test that list vendors page shows up', async (testController) => {
   await listVendorsUserPage.isDisplayed(testController);
 });
 
-// test.only('Test that list menu items user page shows up', async (testController) => {
-//   await navBar.gotoSigninPage(testController);
-//   await signinPage.signin(testController, credentials.username, credentials.password);
-//   await navBar.gotoVendorsListPage(testController);
-//   await listVendorsUserPage.gotoListMenuItemUser(testController);
-//   await listMenuItemsUserPage.isDisplayed(testController);
-// });
-
 test('Test that feeling hungry page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
@@ -118,7 +110,7 @@ test('Test that my vendor page shows up', async (testController) => {
   await myVendorPage.isDisplayed(testController);
 });
 
-test.only('Test that my menu items page shows up', async (testController) => {
+test('Test that my menu items page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsV.username, credentialsV.password);
   await navBar.gotoMyMenuItemsPage(testController);
