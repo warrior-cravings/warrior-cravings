@@ -19,7 +19,7 @@ class MyProfile extends React.Component {
     if (this.props.profiles.length === 0) {
       return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>Profile</Header>
+          <Header id="myprofile" as="h2" textAlign="center" inverted>Profile</Header>
           <Card.Group>
             <Link to={'/addPro/'}>Add Profile</Link>
           </Card.Group>
@@ -28,7 +28,7 @@ class MyProfile extends React.Component {
     }
     return (
       <Container>
-        <Header as="h2" textAlign="center" inverted>Profile</Header>
+        <Header id="myprofile" as="h2" textAlign="center" inverted>Profile</Header>
         {this.props.profiles.map((profile, index) => (<Profile key={index} profile={profile}/>))}
       </Container>
     );

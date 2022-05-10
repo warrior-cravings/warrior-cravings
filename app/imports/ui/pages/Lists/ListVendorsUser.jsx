@@ -16,7 +16,7 @@ class ListVendors extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
+      <Container id="listVenU">
         <Header as="h2" textAlign="center">Vendor</Header>
         <Card.Group itemsPerRow={4}>
           {this.props.vendors.map((vendor, index) => (<VendorUser key={index} vendor={vendor}/>))}
