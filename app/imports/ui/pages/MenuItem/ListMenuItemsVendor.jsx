@@ -23,7 +23,7 @@ class ListMenuItemVendor extends React.Component {
     const vendor = Vendors.collection.findOne({ owner: email });
     const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === vendor.name);
     return (
-      <Container>
+      <Container id="menuItemsVendor">
         <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>
         <CreateMenuItem key={this.props.menuItems.vendor} vendorsDoc={this.props.menuItems.vendor}/>
         <Table celled>

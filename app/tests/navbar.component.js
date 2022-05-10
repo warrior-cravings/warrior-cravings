@@ -71,6 +71,16 @@ class NavBar {
   async gotoAllMenuItemsPage(testController) {
     await testController.click('#allMenuItems');
   }
+
+  /** My Vendor */
+  async gotoMyVendorPage(testController) {
+    await testController.click('#myVendor');
+  }
+
+  /** My Menu Items */
+  async gotoMyMenuItemsPage(testController) {
+    await testController.click('#myMenuItems');
+  }
 }
 
 export const navBar = new NavBar();

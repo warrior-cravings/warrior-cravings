@@ -18,7 +18,7 @@ class MyVendor extends React.Component {
   renderPage() {
     const text = { paddingTop: '50px', fontSize: '20px' };
     return (
-      <Container>
+      <Container id="myVendor">
         <Header as="h2" textAlign="center">My Vendor Profile</Header>
         <Button as={NavLink} activeClassName="active" exact to={`/admin/menuvendor-edit/${this.props.vendor._id}`} key='editvendor'>Edit My Vendor Profile</Button>
         <Grid container style={{ paddingTop: '2em' }}>

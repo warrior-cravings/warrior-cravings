@@ -20,7 +20,7 @@ class ListMenuItemUser extends React.Component {
   renderPage() {
     const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === this.props.vendorDisplayed.name);
     return (
-      <Container>
+      <Container id="menuItemsUser">
         <Table celled>
           <Table.Header>
             <Table.Row>
