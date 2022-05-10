@@ -38,11 +38,11 @@ class AddVendor extends React.Component {
         });
     };
     return (
-      <Modal
+      <Modal id="addvendor"
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>Add Vendor</Button>}
+        trigger={<Button id="addVendorButton">Add Vendor</Button>}
       >
         <Modal.Header>Add Vendor</Modal.Header>
         <Modal.Content>
@@ -51,12 +51,12 @@ class AddVendor extends React.Component {
               <Header as="h2" textAlign="center" inverted>Add Vendor Profile</Header>
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                 <Segment>
-                  <TextField name='name'/>
-                  <TextField name='email'/>
-                  <TextField name='location'/>
-                  <TextField name='image'/>
-                  <LongTextField name='description'/>
-                  <SubmitField value='Submit'/>
+                  <TextField id="addvendor-name" name='name'/>
+                  <TextField id="addvendor-email" name='email'/>
+                  <TextField id="addvendor-location" name='location'/>
+                  <TextField id="addvendor-image" name='image'/>
+                  <LongTextField id="addvendor-description" name='description'/>
+                  <SubmitField id="addvendor-submit" value='Submit'/>
                   <ErrorsField/>
                 </Segment>
               </AutoForm>

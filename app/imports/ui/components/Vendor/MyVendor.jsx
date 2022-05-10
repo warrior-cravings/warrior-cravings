@@ -20,7 +20,7 @@ class MyVendor extends React.Component {
     return (
       <Container id="myVendor">
         <Header as="h2" textAlign="center">My Vendor Profile</Header>
-        <Button as={NavLink} activeClassName="active" exact to={`/admin/menuvendor-edit/${this.props.vendor._id}`} key='editvendor'>Edit My Vendor Profile</Button>
+        <Button id="editVendorButton" as={NavLink} activeClassName="active" exact to={`/admin/menuvendor-edit/${this.props.vendor._id}`} key='editvendor'>Edit My Vendor Profile</Button>
         <Grid container style={{ paddingTop: '2em' }}>
           <Image size='medium' src={this.props.vendor.image}/>
           <div>

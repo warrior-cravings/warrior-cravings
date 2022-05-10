@@ -10,6 +10,10 @@ class MyVendorPage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async gotoEditVendorPage(testController) {
+    await testController.click('#editVendorButton');
+  }
 }
 
 export const myVendorPage = new MyVendorPage();

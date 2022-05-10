@@ -15,6 +15,8 @@ import { allMenuItemsPage } from './allmenuitems.page';
 import { myVendorPage } from './myvendor.page';
 import { vendorHomePage } from './vendorhome.page';
 import { menuItemsVendorPage } from './menuitemsvendor.page';
+import { addVendorPage } from './addvendor.page';
+import { editVendorPage } from './editvendor.page';
 
 /* global fixture:false, test:false */
 
@@ -22,11 +24,17 @@ import { menuItemsVendorPage } from './menuitemsvendor.page';
 const credentials = { username: 'john@foo.com', password: 'changeme' };
 const credentialsA = { username: 'admin@foo.com', password: 'changeme' };
 const credentialsV = { username: 'bean@foo.com', password: 'changeme' };
+// eslint-disable-next-line max-len
+const testVendor = { name: 'Rabbit Rabbit', email: 'rabbitrabbit@foo.com', location: '2700 S King St, Unit E, Honolulu, HI 96826', image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F5f601a_a5532845705b48e0b8834f10ad872c65~mv2_d_3000_1339_s_2.jpg%2Fv1%2Ffill%2Fw_980%2Ch_437%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2F5f601a_a5532845705b48e0b8834f10ad872c65~mv2_d_3000_1339_s_2.jpg&f=1&nofb=1', description: 'boba tea'};
+const testVendor2 = { name: 'The Bean Counter', location: 'Business Administration', image: 'https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/beancounter_big.jpg', description: 'cofee shop' };
 // const createMenuItem = { name: 'croissant', mealType: 'Dessert', ingredients: '[flour, butter, water, yeast, sugar, salt, egg, milk]' };
 
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
+/** PAGE TESTING */
+
+/** USER --------------------------------------------------------------------------------------------------*/
 test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
@@ -73,6 +81,7 @@ test('Test that my profile page shows up', async (testController) => {
   await myProfilePage.isDisplayed(testController);
 });
 
+/** ADMIN -------------------------------------------------------------------------------------------------*/
 test('Test that admin home page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsA.username, credentialsA.password);
@@ -82,21 +91,25 @@ test('Test that admin home page shows up', async (testController) => {
 test('Test that all users page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsA.username, credentialsA.password);
+  await navBar.gotoAllUsersPage(testController);
   await allUsersPage.isDisplayed(testController);
 });
 
-test('Test that all users vendors shows up', async (testController) => {
+test('Test that all vendors page  shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsA.username, credentialsA.password);
+  await navBar.gotoAllVendorsPage(testController);
   await allVendorsPage.isDisplayed(testController);
 });
 
 test('Test that all menu items page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsA.username, credentialsA.password);
+  await navBar.gotoAllMenuItemsPage(testController);
   await allMenuItemsPage.isDisplayed(testController);
 });
 
+/** VENDOR -------------------------------------------------------------------------------------------------*/
 test('Test that vendor home page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsV.username, credentialsV.password);
@@ -116,3 +129,23 @@ test('Test that my menu items page shows up', async (testController) => {
   await navBar.gotoMyMenuItemsPage(testController);
   await menuItemsVendorPage.isDisplayed(testController);
 });
+
+/** FORMS TESTING------------------------------------------------------------------------------------------ */
+
+test('Test that add vendor work', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentialsA.username, credentialsA.password);
+  await navBar.gotoAllVendorsPage(testController);
+  await allVendorsPage.gotoAddVendorPage(testController);
+  await addVendorPage.addVendor(testController, testVendor.name, testVendor.email, testVendor.location, testVendor.image, testVendor.description);
+});
+
+test.only('Test that edit vendor work', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentialsV.username, credentialsV.password);
+  await navBar.gotoMyVendorPage(testController);
+  await myVendorPage.gotoEditVendorPage(testController);
+  await editVendorPage.editVendor(testController, testVendor2.name, testVendor2.location, testVendor2.image, testVendor2.description);
+});
+
+

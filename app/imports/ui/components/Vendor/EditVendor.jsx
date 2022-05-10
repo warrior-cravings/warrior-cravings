@@ -36,16 +36,16 @@ class EditVendor extends React.Component {
       <Button as={NavLink} activeClassName="active" exact to="/myvendor" key='vendor'>Return to my profile</Button>
     );
     return (
-      <Grid container centered>
+      <Grid id="editvendor" container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Vendor Profile</Header>
           <Segment>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
-              <TextField name='name'/>
-              <TextField name='location'/>
-              <TextField name='image'/>
-              <LongTextField name='description'/>
-              <SubmitField value='Submit'/>
+              <TextField id="editvendor-name" name='name'/>
+              <TextField id="editvendor-location" name='location'/>
+              <TextField id="editvendor-image" name='image'/>
+              <LongTextField id="editvendor-description" name='description'/>
+              <SubmitField id="editvendor-submit" value='Submit'/>
               <ErrorsField/>
             </AutoForm>
           </Segment>

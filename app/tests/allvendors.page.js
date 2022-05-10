@@ -10,6 +10,10 @@ class AllVendorsPage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async gotoAddVendorPage(testController) {
+    await testController.click('#addVendorButton');
+  }
 }
 
 export const allVendorsPage = new AllVendorsPage();
