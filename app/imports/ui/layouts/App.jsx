@@ -22,7 +22,7 @@ import ListProfiles from '../pages/Lists/ListProfiles';
 import ListVendorsUser from '../pages/Lists/ListVendorsUser';
 import ListVendorsAdmin from '../pages/Lists/ListVendorsAdmin';
 import EditVendor from '../components/Vendor/EditVendor';
-import Locations from '../pages/Main/Locations';
+import Locations from '../pages/Main/Location';
 import Home from '../pages/Main/Home';
 import MyVendor from '../components/Vendor/MyVendor';
 import Vendor from '../components/Vendor/Vendor';
