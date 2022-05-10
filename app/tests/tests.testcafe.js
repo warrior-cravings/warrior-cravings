@@ -4,9 +4,8 @@ import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { feelingHungryPage } from './feelinghungry.page';
 import { homePage } from './home.page';
-import { listMenuItemsAdminPage } from './listmenuitemsadmin.page';
 import { listMenuItemsUserPage } from './listmenuitemsuser.page';
-import { listMenuItemsVendorPage } from './listmenuitemsvendor.page';
+import { listVendorsUserPage } from './listvendorsuser.page';
 import { locationPage } from './location.page';
 
 /* global fixture:false, test:false */
@@ -17,31 +16,27 @@ const credentials = { username: 'john@foo.com', password: 'changeme' };
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
-test('Test that landing page shows up', async (testController) => {
-  await landingPage.isDisplayed(testController);
-});
-
-test('Test that landing page shows up', async (testController) => {
+test('Test that feeling hungry page shows up', async (testController) => {
   await feelingHungryPage.isDisplayed(testController);
 });
 
-test('Test that landing page shows up', async (testController) => {
+test('Test that home page shows up', async (testController) => {
   await homePage.isDisplayed(testController);
 });
 
 test('Test that landing page shows up', async (testController) => {
-  await listMenuItemsAdminPage.isDisplayed(testController);
+  await landingPage.isDisplayed(testController);
 });
 
-test('Test that landing page shows up', async (testController) => {
+test('Test that list menu items page shows up', async (testController) => {
   await listMenuItemsUserPage.isDisplayed(testController);
 });
 
-test('Test that landing page shows up', async (testController) => {
-  await listMenuItemsVendorPage.isDisplayed(testController);
+test('Test that list vendors page shows up', async (testController) => {
+  await listVendorsUserPage.isDisplayed(testController);
 });
 
-test('Test that landing page shows up', async (testController) => {
+test('Test that location page shows up', async (testController) => {
   await locationPage.isDisplayed(testController);
 });
 
