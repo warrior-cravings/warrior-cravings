@@ -16,14 +16,13 @@ import { myVendorPage } from './myvendor.page';
 import { vendorHomePage } from './vendorhome.page';
 import { menuItemsVendorPage } from './menuitemsvendor.page';
 
-
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
 const credentialsA = { username: 'admin@foo.com', password: 'changeme' };
 const credentialsV = { username: 'bean@foo.com', password: 'changeme' };
-const createMenuItem = { name: 'croissant', mealType: 'Dessert', ingredients: '[flour, butter, water, yeast, sugar, salt, egg, milk]' };
+// const createMenuItem = { name: 'croissant', mealType: 'Dessert', ingredients: '[flour, butter, water, yeast, sugar, salt, egg, milk]' };
 
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
@@ -59,14 +58,6 @@ test('Test that list vendors page shows up', async (testController) => {
   await navBar.gotoVendorsListPage(testController);
   await listVendorsUserPage.isDisplayed(testController);
 });
-
-// test.only('Test that list menu items user page shows up', async (testController) => {
-//   await navBar.gotoSigninPage(testController);
-//   await signinPage.signin(testController, credentials.username, credentials.password);
-//   await navBar.gotoVendorsListPage(testController);
-//   await listVendorsUserPage.gotoListMenuItemUser(testController);
-//   await listMenuItemsUserPage.isDisplayed(testController);
-// });
 
 test('Test that feeling hungry page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
@@ -119,7 +110,7 @@ test('Test that my vendor page shows up', async (testController) => {
   await myVendorPage.isDisplayed(testController);
 });
 
-test.only('Test that my menu items page shows up', async (testController) => {
+test('Test that my menu items page shows up', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsV.username, credentialsV.password);
   await navBar.gotoMyMenuItemsPage(testController);
