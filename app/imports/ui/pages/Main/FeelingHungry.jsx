@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
-import { Grid, Container, Loader, Card } from 'semantic-ui-react';
+import { Grid, Container, Loader, Card, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { Vendors } from '../../../api/vendor/Vendor';
 import VendorCard from '../../components/Vendor/VendorCard';
 
@@ -21,9 +22,10 @@ class FeelingHungry extends React.Component {
     return (
       <Container id="vendor-page" style={{ paddingTop: '40px' }}>
         <Grid centered>
-          <Card.Group itemsPerRow={3}>
+          <Grid.Row><Button color='red' size='huge' as={NavLink} activeClassName="active" exact to="/feelinghungry" key='feelinghungry'>Still Hungry</Button></Grid.Row>
+          <Grid.Row><Card.Group itemsPerRow={3}>
             {vendorSample.map((vendor) => (<VendorCard key={vendor.name} vendor={vendor}/>))}
-          </Card.Group>
+          </Card.Group></Grid.Row>
         </Grid>
       </Container>
     );

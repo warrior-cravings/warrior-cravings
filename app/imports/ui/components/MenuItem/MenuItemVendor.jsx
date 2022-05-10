@@ -13,7 +13,7 @@ class MenuItemVendor extends React.Component {
         <Table.Cell>{this.props.Item.mealType.toString()}</Table.Cell>
         <Table.Cell>{this.props.Item.ingredients.toString()}</Table.Cell>
         <Table.Cell>{this.props.Item.vendor.toString()}</Table.Cell>
-        <Table.Cell>{<Link to={`/vendor/menuitem-edit/${this.props.Item._id}`}>Edit</Link>}</Table.Cell>
+        <Table.Cell>{<Link to={`/menuitem-edit/${this.props.Item._id}`}>Edit</Link>}</Table.Cell>
         <Table.Cell><DeleteMenuItem key={this.props.Item.name} item={this.props.Item}/></Table.Cell>
       </Table.Row>
     );

@@ -39,7 +39,6 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;// Get the document
   const sub1 = Meteor.subscribe(Vendors.vendorPublicationName);
   const vendor = Vendors.collection.findOne(documentId);
-  console.log(vendor);
   const ready = sub1.ready();
   return {
     vendor,

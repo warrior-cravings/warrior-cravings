@@ -1,4 +1,5 @@
 import React from 'react';
+import { Roles } from 'meteor/alanning:roles';
 import { Grid, Loader, Header, Segment, Form, Button } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-semantic';
@@ -30,6 +31,11 @@ class EditMenuItem extends React.Component {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
+    const returnBut = (Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
+      <Button as={NavLink} activeClassName="active" exact to="/admin/listallmenuitems" key='vendor'>Return to list</Button>
+    ) : (
+      <Button as={NavLink} activeClassName="active" exact to="/vendor/mymenu" key='vendor'>Return to list</Button>
+    );
     return (
       <Grid container centered>
         <Grid.Column>
@@ -46,7 +52,7 @@ class EditMenuItem extends React.Component {
               <ErrorsField/>
             </AutoForm>
           </Segment>
-          <Button as={NavLink} activeClassName="active" exact to="/vendor-home" key='vendor'>Return to list</Button>
+          {returnBut}
         </Grid.Column>
       </Grid>
     );

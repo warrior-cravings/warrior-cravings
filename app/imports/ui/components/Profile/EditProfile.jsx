@@ -1,4 +1,5 @@
 import React from 'react';
+import { Roles } from 'meteor/alanning:roles';
 import { Grid, Loader, Header, Segment, Button } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
@@ -30,6 +31,11 @@ class EditProfile extends React.Component {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
+    const returnBut = (Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
+      <Button as={NavLink} activeClassName="active" exact to="/admin/listallprofiles" key='profile'>Return to list</Button>
+    ) : (
+      <Button as={NavLink} activeClassName="active" exact to="/myprofile" key='profile'>Return to Profile</Button>
+    );
     return (
       <Grid container centered>
         <Grid.Column>
@@ -45,7 +51,7 @@ class EditProfile extends React.Component {
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
-            <Button as={NavLink} activeClassName="active" exact to="/home">Return to Home</Button>
+            {returnBut}
           </AutoForm>
         </Grid.Column>
       </Grid>
