@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { _ } from 'meteor/underscore';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
