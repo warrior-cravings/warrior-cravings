@@ -42,25 +42,18 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/home" component={Home}/>
             <ProtectedRoute exact path="/locations" component={Locations}/>
-            <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
-            <VendorProtectedRoute path="/menuitem/menuitemsV" component={ListMenuItemsVendor}/>
-            <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
-            <AdminProtectedRoute path="/admin/menuitemsA" component={ListMenuItemsAdmin}/>
-            <VendorProtectedRoute path="/vendor-home" component={ListMenuItemsVendor}/>
             <VendorProtectedRoute path="/myvendor" component={MyVendor}/>
             <ProtectedRoute path="/myprofile" component={MyProfile}/>
             <ProtectedRoute path="/feelinghungry" component={FeelingHungry}/>
             <ProtectedRoute path="/listVenU" component={ListVendorsUser}/>
-            <ProtectedRoute path="/vendor/menuitems" component={ListMenuItemsUser}/>
             <VendorProtectedRoute path="/vendor/mymenu" component={ListMenuItemsVendor}/>
-            <VendorProtectedRoute path="/vendor/vendor-home" component={ListMenuItemsVendor}/>
             <AdminProtectedRoute path="/admin/listallprofiles" component={ListProfilesAdmin}/>
             <AdminProtectedRoute path="/admin/listallvendors" component={ListVendorsAdmin}/>
             <AdminProtectedRoute path="/admin/listallmenuitems" component={ListMenuItemsAdmin}/>
             <AdminProtectedRoute path="/admin/addPro" component={AddProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
             <ProtectedRoute path="/vendor/:_id" component={Vendor}/>
-            <VendorProtectedRoute path="/vendor/menuitem-edit/:_id" component={EditMenuItem}/>
+            <VendorProtectedRoute path="/menuitem-edit/:_id" component={EditMenuItem}/>
             <VendorProtectedRoute path="/admin/menuvendor-edit/:_id" component={EditVendor}/>
             <Route component={NotFound}/>
           </Switch>

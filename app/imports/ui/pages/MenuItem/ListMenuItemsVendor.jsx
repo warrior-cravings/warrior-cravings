@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { _ } from 'meteor/underscore';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -22,9 +21,7 @@ class ListMenuItemVendor extends React.Component {
   renderPage() {
     const email = Meteor.user().username;
     const vendor = Vendors.collection.findOne({ owner: email });
-    // console.log(email, vendor.name);
     const vendorItems = _.filter(this.props.menuItems, (item) => item.vendor === vendor.name);
-    console.log(vendorItems);
     return (
       <Container>
         <Header as="h2" textAlign="center">List Menu Items (Vendor)</Header>

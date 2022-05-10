@@ -16,7 +16,6 @@ const formSchema = new SimpleSchema({
     type: Array,
   },
   'mealType.$': { type: String, allowedValues: itemType.itemType },
-  // image: { label: 'URL', type: String },
   ingredients: {
     label: 'Ingredients',
     type: String,

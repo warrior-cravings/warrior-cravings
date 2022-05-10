@@ -33,14 +33,11 @@ class CreateMenuItem extends React.Component {
     let fRef = null;
     const submit = (data, formRef) => {
       const { name, mealType, ingredients, email } = data;
-      console.log(email);
       const vendor1 = Vendors.collection.find({ owner: email }).fetch();
-      if (vendor1 === undefined) {
+      if (vendor1[0] === undefined) {
         swal('Error', 'Vendor does not exist', 'error');
       }
-      console.log(vendor1);
       const vendorname = vendor1[0].name;
-      console.log(vendorname);
       let insertError;
       MenuItems.collection.insert({ name, vendor: vendorname, mealType, ingredients },
         (error) => { insertError = error; });

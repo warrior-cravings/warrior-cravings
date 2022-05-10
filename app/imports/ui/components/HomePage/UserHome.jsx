@@ -16,7 +16,7 @@ class UserHome extends React.Component {
             </Link>
           </Grid.Column>
           <Grid.Column textAlign='center' >
-            <Link to="/hungry">
+            <Link to="/feelinghungry">
               <Icon color='red' size="massive" name="star"/>
               <Header color='red' as='h1'>Feeling Hungry</Header>
             </Link>
