@@ -3,7 +3,6 @@ import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { feelingHungryPage } from './feelinghungry.page';
-import { homePage } from './home.page';
 import { listMenuItemsUserPage } from './listmenuitemsuser.page';
 import { listVendorsUserPage } from './listvendorsuser.page';
 import { locationPage } from './location.page';
@@ -18,10 +17,6 @@ fixture('meteor-application-template-react localhost test with default db')
 
 test('Test that feeling hungry page shows up', async (testController) => {
   await feelingHungryPage.isDisplayed(testController);
-});
-
-test('Test that home page shows up', async (testController) => {
-  await homePage.isDisplayed(testController);
 });
 
 test('Test that landing page shows up', async (testController) => {
