@@ -12,12 +12,30 @@ class EditProfilePage {
   }
 
   async editProfile(testController, firstName, lastName, address, image, owner, description) {
-    await testController.typeText('#editprofile-firstName', firstName);
-    await testController.typeText('#editprofile-lastName', lastName);
-    await testController.typeText('#editprofile-address', address);
-    await testController.typeText('#editprofile-image', image);
-    await testController.typeText('#editprofile-owner', owner);
-    await testController.typeText('#editprofile-description', description);
+    await testController
+      .click('#editprofile-firstName')
+      .pressKey('ctrl+a delete')
+      .typeText('#editprofile-firstName', firstName);
+    await testController
+      .click('#editprofile-lastName')
+      .pressKey('ctrl+a delete')
+      .typeText('#editprofile-lastName', lastName);
+    await testController
+      .click('#editprofile-address')
+      .pressKey('ctrl+a delete')
+      .typeText('#editprofile-address', address);
+    await testController
+      .click('#editprofile-image')
+      .pressKey('ctrl+a delete')
+      .typeText('#editprofile-image', image);
+    await testController
+      .click('#editprofile-owner')
+      .pressKey('ctrl+a delete')
+      .typeText('#editprofile-owner', owner);
+    await testController
+      .click('#editprofile-description')
+      .pressKey('ctrl+a delete')
+      .typeText('#editprofile-description', description);
     await testController.click('#editprofile-submit');
   }
 }

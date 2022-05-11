@@ -14,6 +14,10 @@ class MenuItemsVendorPage {
   async gotoAddMenuItemPage(testController) {
     await testController.click('#addMenuItemButton');
   }
+
+  async gotoEditMenuItemPage(testController) {
+    await testController.click('#editMenuItemButton');
+  }
 }
 
 export const menuItemsVendorPage = new MenuItemsVendorPage();

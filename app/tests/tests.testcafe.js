@@ -19,6 +19,7 @@ import { addVendorPage } from './addvendor.page';
 import { editVendorPage } from './editvendor.page';
 import { editProfilePage } from './editprofile.page';
 import { addMenuItemPage } from './addmenuitem.page';
+import { editMenuItemPage } from './editmenuitem.page';
 
 /* global fixture:false, test:false */
 
@@ -28,7 +29,7 @@ const credentialsA = { username: 'admin@foo.com', password: 'changeme' };
 const credentialsV = { username: 'bean@foo.com', password: 'changeme' };
 // eslint-disable-next-line max-len
 const testVendor = { name: 'Rabbit Rabbit', email: 'rabbitrabbit@foo.com', location: '2700 S King St, Unit E, Honolulu, HI 96826', image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F5f601a_a5532845705b48e0b8834f10ad872c65~mv2_d_3000_1339_s_2.jpg%2Fv1%2Ffill%2Fw_980%2Ch_437%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2F5f601a_a5532845705b48e0b8834f10ad872c65~mv2_d_3000_1339_s_2.jpg&f=1&nofb=1', description: 'boba tea'};
-const testVendor2 = { name: 'The Bean Counter', location: 'Business Administration', image: 'https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/beancounter_big.jpg', description: 'cofee shop' };
+const testVendor2 = { name: 'The Bean Counter', location: 'Business Administration', image: 'https://manoa.hawaii.edu/food/wp-content/uploads/sites/37/2020/05/beancounter_big.jpg', description: 'coffee shop' };
 const testUser = { firstName: 'Philip', lastName: 'Johnson', address: 'POST 307, University of Hawaii', image: 'https://philipmjohnson.github.io/images/philip2.jpeg', owner: 'john@foo.com', description: 'cool test!' };
 const testMenuItem = { name: 'croissant', ingredients: 'flour, butter, water, yeast, sugar, salt, egg, milk' };
 
@@ -159,7 +160,6 @@ test('Test that edit user profile work', async (testController) => {
   await editProfilePage.editProfile(testController, testUser.firstName, testUser.lastName, testUser.address, testUser.image, testUser.owner, testUser.description);
 });
 
-/**
 test.only('Test that add menu Item work', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsV.username, credentialsV.password);
@@ -172,6 +172,6 @@ test.only('Test that edit menu Item work', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentialsV.username, credentialsV.password);
   await navBar.gotoMyMenuItemsPage(testController);
-  await menuItemsVendorPage.gotoAddMenuItemPage(testController);
-  await addMenuItemPage.addItem(testController, testMenuItem.name, testMenuItem.ingredients);
-}); */
+  await menuItemsVendorPage.gotoEditMenuItemPage(testController);
+  await editMenuItemPage.editItem(testController, testMenuItem.name, testMenuItem.ingredients);
+});

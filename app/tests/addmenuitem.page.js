@@ -14,7 +14,10 @@ class AddMenuItemPage {
   async addItem(testController, name, ingredients) {
     await this.isDisplayed(testController);
     await testController.typeText('#additem-name', name);
-    await testController.click('#additem-mealtype');
+    await testController.pressKey('tab');
+    await testController.pressKey('down');
+    await testController.pressKey('enter');
+    await testController.pressKey('tab');
     await testController.typeText('#additem-ingredients', ingredients);
     await testController.click('#additem-submit');
   }

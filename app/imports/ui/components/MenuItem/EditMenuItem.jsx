@@ -37,18 +37,18 @@ class EditMenuItem extends React.Component {
       <Button as={NavLink} activeClassName="active" exact to="/vendor/mymenu" key='vendor'>Return to list</Button>
     );
     return (
-      <Grid container centered>
+      <Grid id="editmenuitem" container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Menu Item</Header>
           <Segment>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Form.Group widths={'equal'}>
-                <TextField name='name' showInlineError={true}/>
+                <TextField id="edititem-name" name='name' showInlineError={true}/>
                 <HiddenField name='vendor'/>
               </Form.Group>
               <MultiSelectField name='mealType' showInlineError={true}/>
-              <TextField name='ingredients' showInlineError={true}/>
-              <SubmitField value='Submit'/>
+              <TextField id="edititem-ingredients" name='ingredients' showInlineError={true}/>
+              <SubmitField id="edititem-submit" value='Submit'/>
               <ErrorsField/>
             </AutoForm>
           </Segment>

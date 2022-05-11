@@ -64,9 +64,9 @@ class CreateMenuItem extends React.Component {
                   <Form.Group widths={'equal'}>
                     <TextField id="additem-name" name='name' showInlineError={true} placeholder={'Item Name'}/>
                   </Form.Group>
-                  <MultiSelectField id="additem-mealtype" name='mealType' showInlineError={true} placeholder={'Select mealType'}/>
+                  <MultiSelectField name='mealType' showInlineError={true} placeholder={'Select mealType'}/>
                   <TextField id="additem-ingredients" name='ingredients' showInlineError={true} placeholder={'Type Ingredients in comma separated list'}/>
-                  <SubmitField value='Submit'/>
+                  <SubmitField id="additem-submit" value='Submit'/>
                 </AutoForm>
               </Segment>
             </Grid.Column>
